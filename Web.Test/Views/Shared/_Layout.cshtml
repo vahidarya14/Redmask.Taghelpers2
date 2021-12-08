@@ -1,0 +1,321 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - test</title>
+
+
+    <link href="/_content/Redmask.Taghelpers/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/_content/Redmask.Taghelpers/lib/line-awesome-1.3.0/css/line-awesome.min.css" rel="stylesheet" />
+    <link href="/_content/Redmask.Taghelpers/lib/kendo2020/kendo.default-v2.min.css" rel="stylesheet" />
+    <link href="/_content/Redmask.Taghelpers/lib/MD.BootstrapPersianDateTimePicker/jquery.md.bootstrap.datetimepicker.style.css" rel="stylesheet" />
+    <link href="/_content/Redmask.Taghelpers/lib/AdminLTE-3.0.2/css/adminlte.css" rel="stylesheet" />
+    <link href="/_content/Redmask.Taghelpers/lib/persian.css" rel="stylesheet" />
+    @{
+        var themeColor = "#0ea960";
+    }
+    <style>
+        
+        .main-header {
+            color: #fff;
+            background-color: @themeColor;
+        }
+
+        .main-header .nav-link, .main-header .btn-link {
+            color: white !important;
+            font-size: 1rem !important;
+        }
+
+        .sidebar-dark-primary .nav-sidebar > .nav-item > .nav-link.active, .sidebar-light-primary .nav-sidebar > .nav-item > .nav-link.active {
+            color: @themeColor;
+            background-color: #ffffff;
+            box-shadow: none;
+        }
+        .btn-primary {
+            background-color: @themeColor;
+            border-color: @themeColor;
+        }
+
+        .btn-primary:hover, .btn-primary.focus, .btn-primary:focus, .btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active, .show > .btn-primary.dropdown-toggle {
+            background-color: @(themeColor)af;
+            border-color: @(themeColor)af;
+        }
+
+        td .btn-link {
+            color: @themeColor !important;
+            font-size: 1rem !important;
+        }
+
+
+
+        .font-26 {
+            font-size: 26px;
+        }
+    </style>
+</head>
+<body class="hold-transition sidebar-mini layout-fixed text-sm">
+    <div class="wrapper">
+
+        <!-- Navbar -->
+        <nav class="main-header navbar navbar-expand navbar-light  text-sm">
+            <!-- Left navbar links -->
+            <ul class="navbar-nav" style="padding-inline-start: 0;">
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="pushmenu" href="#"><i style="font-size: 26px;" class="las la-bars la-2x font-26"></i></a>
+                </li>
+                <li class="nav-item d-none d-sm-inline-block">
+                    <a href="/" class="nav-link" target="_blank"><i class="lab la-edge la-2x font-26"></i></a>
+                </li>
+            </ul>
+
+            <!-- SEARCH FORM -->
+            <form class="form-inline">
+                <div class="input-group input-group-sm ltr">
+                    <input class="form-control form-control-navbar" type="search" placeholder="جستجو" aria-label="Search">
+                    <div class="input-group-append">
+                        <button class="btn btn-navbar" type="submit">
+                            <i class="las la-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+
+            <!-- Right navbar links -->
+            <ul class="navbar-nav mr-auto">
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link" data-toggle="dropdown" href="#">
+                        <i class="las la-bell"></i>
+                        <span class="badge badge-warning navbar-badge">15</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu">
+                        <span class="dropdown-item dropdown-header">15 Notifications</span>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item">
+                            <i class="fas fa-envelope mr-2"></i> 4 new messages
+                            <span class="float-right text-muted text-sm">3 mins</span>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item">
+                            <i class="fas fa-users mr-2"></i> 8 friend requests
+                            <span class="float-right text-muted text-sm">12 hours</span>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item">
+                            <i class="fas fa-file mr-2"></i> 3 new reports
+                            <span class="float-right text-muted text-sm">2 days</span>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+                    </div>
+                </li>
+
+                <li class="nav-item dropdown" style="white-space: nowrap;">
+                    <a class="nav-link" data-toggle="dropdown" href="#">
+                        <i class="las la-user"></i>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu">
+                        <a href="#" class="dropdown-item">
+                            <!-- Message Start -->
+                            <div class="media">
+                                <img  class="img-size-50 mr-3 img-circle" style="max-width: 100%;">
+                                <div class="media-body">
+
+
+                                </div>
+                            </div>
+                            <!-- Message End -->
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
+                        <div class="dropdown-divider"></div>
+                        <div>
+                            <form action="/account/logoff" method="post">
+                                @Html.AntiForgeryToken()
+                                <button type="submit" class="dropdown-item">خروج</button>
+                            </form>
+                        </div>
+                    </div>
+                </li>
+
+            </ul>
+        </nav>
+        <!-- /.navbar -->
+        <!-- Main Sidebar Container -->
+        <aside class="main-sidebar sidebar-light-primary border-left" style=" font-size: 14px;">
+            <!-- Brand Logo -->
+            <a href="/" class="brand-link">
+                <img src="~/_files/imgs/favicon.png" alt="Logo" class="brand-image img-circle elevation-3"
+                     style="opacity: .8">
+                <span class="brand-text font-weight-light">redmask</span>
+            </a>
+
+            <!-- Sidebar -->
+            <div class="sidebar">
+                @*<div class="user-panel mt-1 pb-1 d-flex">
+                    <div class="image">
+                    <img src="@(Setting.UsersFolder)@User.Identity.GetAvatar()" class="img-circle elevation-2" alt="User Image">
+                    </div>
+                    <div class="info">
+                    <a href="#" class="d-block">
+                    نقاب قرمز
+                    </a>
+                    </div>
+                    </div>*@
+
+                <nav class="mt-2">
+                    <ul class="nav nav-pills nav-sidebar flex-column nav-flat nav-compact" data-widget="treeview" role="menu" data-accordion="false">
+
+                        <li class="nav-item ">
+                            <a href="/Admin/Dashboard" class="nav-link">
+                                <i class="las la-tachometer-alt la-2x"></i>
+                                <p>داشبورد</p>
+                            </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a href="/Admin/Settings" class="nav-link">
+                                <i class="las la-cog la-2x"></i>
+                                <p>تنظیمات</p>
+                            </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a href="/Admin/Users" class="nav-link">
+                                <i class="las la-users la-2x"></i>
+                                <p>کاربران</p>
+                            </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a href="/Admin/Medias" class="nav-link">
+                                <i class="las la-video la-2x"></i>
+                                <p>مدیا</p>
+                            </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a href="/Admin/Newses" class="nav-link">
+                                <i class="las la-newspaper la-2x"></i>
+                                <p>اخبار<i class="right "></i></p>
+                            </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a href="/Admin/Learnings" class="nav-link">
+                                <i class="las la-graduation-cap la-2x"></i>
+                                <p>آموزشها و مقالات<i class="right "></i></p>
+                            </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a href="/Admin/Contents" class="nav-link">
+                                <i class="las la-file-alt la-2x"></i>
+                                <p> صفحات و مطالب<i class="right "></i></p>
+                            </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a href="/Admin/SlidShows" class="nav-link">
+                                <i class="lab la-slideshare la-2x"></i>
+                                <p>اسلایدشو<i class="right "></i></p>
+                            </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a href="/Admin/NewsLetterSubscribers" class="nav-link">
+                                <i class="las la-user-friends la-2x"></i>
+                                <p>اعضای خبرنامه</p>
+                            </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a href="/Admin/UsefullLinks" class="nav-link">
+                                <i class="las la-link la-2x"></i>
+                                <p>لینکهای مفید</p>
+                            </a>
+                        </li>
+                        @*<li class="nav-item has-treeview">
+                            <a href="#" class="nav-link">
+                            <i class="nav-icon icofont-ui-copy"></i>
+                            <p>
+                            Layout Options
+                            <i class=" right"></i>
+                            <span class="badge badge-info right">6</span>
+                            </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                            <a href="pages/layout/top-nav.html" class="nav-link">
+                            <i class="icofont-life-buoy nav-icon"></i>
+                            <p>Top Navigation</p>
+                            </a>
+                            </li>
+                            </ul>
+                            </li>*@
+
+
+                    </ul>
+                </nav>
+                <!-- /.sidebar-menu -->
+            </div>
+            <!-- /.sidebar -->
+        </aside>
+
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            <div class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1 class="m-0 text-dark">
+                                @RenderSection("textDark", required: false)
+                            </h1>
+                        </div><!-- /.col -->
+                        <div class="col-sm-6">
+                            @if (IsSectionDefined("breadcrumb"))
+                            {
+                                <ol class="breadcrumb float-sm-right">
+                                    @*<li class="breadcrumb-item"><a href="/">خانه</a></li>
+                                        <li class="breadcrumb-item active">Dashboard v1</li>*@
+                                    @RenderSection("breadcrumb", required: false)
+                                </ol>
+                            }
+
+                        </div><!-- /.col -->
+                    </div><!-- /.row -->
+                </div><!-- /.container-fluid -->
+            </div>
+            <!-- /.content-header -->
+            <!-- Main content -->
+            <div class="container-fluid" style="direction: rtl; min-height:70vh;">
+
+                @RenderBody()
+            </div>
+            <!-- /.content -->
+        </div>
+        <!-- /.content-wrapper -->
+        @*<footer class="main-footer">
+            <strong> &copy; 2014-2019 <a href="http://redmask.ir">redmask</a>.</strong>
+            <div class="float-right d-none d-sm-inline-block">
+            <b>Version</b> 3.0.2
+            </div>
+            </footer>*@
+
+        <!-- Control Sidebar -->
+        <aside class="control-sidebar control-sidebar-dark">
+            <!-- Control sidebar content goes here -->
+        </aside>
+        <!-- /.control-sidebar -->
+    </div>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+
+    <script src="/_content/Redmask.Taghelpers/lib/jquery/jquery.min.js"></script>
+    <script src="/_content/Redmask.Taghelpers/lib/MD.BootstrapPersianDateTimePicker/jalaali.js"></script>
+    <script src="/_content/Redmask.Taghelpers/lib/MD.BootstrapPersianDateTimePicker/jquery.md.bootstrap.datetimepicker.js"></script>
+    <script src="/_content/Redmask.Taghelpers/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/_content/Redmask.Taghelpers/lib/AdminLTE-3.0.2/js/adminlte.js"></script>
+    <script src="/_content/Redmask.Taghelpers/lib/kendo2020/kendo.all.min.js"></script>
+    <script src="/_content/Redmask.Taghelpers/lib/tinymce5/tinymce.min.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

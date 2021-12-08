@@ -1,0 +1,32 @@
+﻿@model Web.Test.Controllers.Product
+
+<div class="card">
+    <div class="card-body">
+        <form asp-action="Index">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="row">
+                <div class="col-md-8">
+                    <Bs4FormGroup label="عکس">
+                        <imageChooser asp-for="Img"></imageChooser>
+                    </Bs4FormGroup>
+
+                    <Bs4FormGroup label="تاریخ ایحاد">
+                        <PersianDatePickerFor asp-for="CreateDate" ></PersianDatePickerFor>
+                    </Bs4FormGroup>
+
+                    <Bs4FormGroup label="توضیحات">
+                        <TinyMce5For asp-for="Description" >fddfdfda fasdf </TinyMce5For>
+                    </Bs4FormGroup>
+
+
+
+                    <div class="form-group">
+                        <input type="submit" value="Save" class="btn btn-primary" />
+                    </div>
+                </div>
+            </div>
+          
+        </form>
+    </div>
+</div>
+
