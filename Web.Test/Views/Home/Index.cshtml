@@ -6,22 +6,30 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="row">
                 <div class="col-md-8">
+
+                    <ShareBtn use-current-url="true" class="float-left"></ShareBtn>
+                    
                     <Bs4FormGroup label="عکس">
-                        <imageChooser asp-for="Img"></imageChooser>
+                        <imageChooser name="Img2" src="/noimg.png"></imageChooser>
+                    </Bs4FormGroup>
+
+                    <Bs4FormGroup label="عکس">
+                        <imageChooserfor asp-for="Img"></imageChooserfor>
                     </Bs4FormGroup>
 
                     <Bs4FormGroup label="تاریخ ایحاد">
-                        <PersianDatePickerFor asp-for="CreateDate" ></PersianDatePickerFor>
+                        <PersianDatePickerFor asp-for="CreateDate"></PersianDatePickerFor>
                     </Bs4FormGroup>
 
                     <Bs4FormGroup label="توضیحات">
-                        <TinyMce5For asp-for="Description" >fddfdfda fasdf </TinyMce5For>
+                        <TinyMce5For asp-for="Description">fddfdfda fasdf </TinyMce5For>
                     </Bs4FormGroup>
+
 
 
 
                     <div class="form-group">
-                        <input type="submit" value="Save" class="btn btn-primary" />
+                        <input type="submit" value="Save" class="btn btn-primary"/>
                     </div>
                 </div>
             </div>

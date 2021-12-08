@@ -24,10 +24,10 @@ namespace Redmask.Taghelpers.TagHelpers
             //var aaa = Request.GetDisplayUrl();
             output.Content.SetHtmlContent($@"       
 <div class='dropdown'>
-    <button class='btn btn-sm btn-danger' type='button' id='dropdownMenuButton' data-toggle='dropdown'>
-        <i class='icofont-share  icofont-1x'></i>
+    <button class='btn btn-sm btn-danger' type='button'  data-toggle='dropdown'>
+        <i class='las la-share-alt-square la-2x'></i>
     </button>
-    <div class='dropdown-menu' aria-labelledby='dropdownMenuButton'>
+    <div class='dropdown-menu' >
         <a class='dropdown-item text-left' href='https://www.facebook.com/sharer.php?u={currentUrl}&t={Subject}' target='_blank'> <i class='icofont-facebook'></i> Facebook</a>
         <a class='dropdown-item text-left' href='http://www.linkedin.com/shareArticle?mini=true&title={Subject}&url={currentUrl}' target='_blank'> <i class='icofont-linkedin'></i> Linkedin</a>
         <a class='dropdown-item text-left' href='https://twitter.com/home?status=Reading:{currentUrl}' title='اشتراک گذاری در تویینر' target='_blank'><i class='icofont-twitter'></i> twitter</a>

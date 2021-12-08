@@ -1,13 +1,14 @@
 ﻿using System;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 
 namespace Redmask.Taghelpers.TagHelpers
 {
-    [HtmlTargetElement("imageChooser", Attributes = "name;src", TagStructure = TagStructure.NormalOrSelfClosing)]
-    public class ImageChooserTagHelper : TagHelper
+    [HtmlTargetElement("imageChooserFor", Attributes = "asp-for", TagStructure = TagStructure.NormalOrSelfClosing)]
+    public class ImageChooserForTagHelper : TagHelper
     {
-        public string Name { get; set; }
-        public string Src { get; set; }
+        [HtmlAttributeName("asp-for")] public ModelExpression Model { get; set; }
+
         public string FolderPath { get; set; }
         public int MaxKb { get; set; } = 8000;
         public double MinRatioHeightToWidth { get; set; } = .001;
@@ -18,9 +19,9 @@ namespace Redmask.Taghelpers.TagHelpers
 
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
-            var src = Src != null ? FolderPath + Src : DefaultAvatar;
-            var imgId = Name + Guid.NewGuid().ToString().Split('-')[0];
-            var fileId = Name + "file";
+            var src = Model.Model != null ? FolderPath + Model.Model : DefaultAvatar;
+            var imgId = Model.Name + Guid.NewGuid().ToString().Split('-')[0];
+            var fileId = Model.Name + "file";
             var maxAllowedKillobyte = (MaxKb + 6) * 1000;
 
             output.Content.SetHtmlContent($@"
