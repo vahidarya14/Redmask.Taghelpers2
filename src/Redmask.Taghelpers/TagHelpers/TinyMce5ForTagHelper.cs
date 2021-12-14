@@ -10,6 +10,8 @@ namespace Redmask.Taghelpers.TagHelpers
         [HtmlAttributeName("asp-for")]
         public ModelExpression AspFor { get; set; }
 
+        public string Language { get; set; }// = "fa_IR";
+        public string Directionality { get; set; } //= "rtl";
 
 
         public async override Task ProcessAsync(TagHelperContext context, TagHelperOutput output)
@@ -27,7 +29,7 @@ namespace Redmask.Taghelpers.TagHelpers
 
         tinyMCE.init({{
             selector: '#{Id}',
-            language: 'fa_IR',
+            language: '{Language}',
             //mode: 'textareas',
             //theme: 'modern',
             //inline_styles: true,
@@ -43,7 +45,7 @@ namespace Redmask.Taghelpers.TagHelpers
                 'searchreplace visualblocks code fullscreen textcolor',
                 'insertdatetime media table contextmenu paste fullpage  codesample emoticons'
             ],
-            directionality: 'rtl',
+            directionality: '{Directionality}',
             codesample_languages: [
                 {{ text: 'HTML/XML', value: 'markup' }},
                 {{ text: 'JavaScript', value: 'javascript' }},

@@ -1,14 +1,13 @@
 ﻿using System;
-using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 
 namespace Redmask.Taghelpers.TagHelpers
 {
-    [HtmlTargetElement("imageChooserFor", Attributes = "asp-for", TagStructure = TagStructure.NormalOrSelfClosing)]
-    public class ImageChooserForTagHelper : TagHelper
+    [HtmlTargetElement("imageChooser", Attributes = "name", TagStructure = TagStructure.NormalOrSelfClosing)]
+    public class ImageChooserTagHelper : TagHelper
     {
-        [HtmlAttributeName("asp-for")] public ModelExpression Model { get; set; }
-
+        public string Name { get; set; }
+        public string Src { get; set; }
         public string FolderPath { get; set; }
         public int MaxKb { get; set; } = 8000;
         public double MinRatioHeightToWidth { get; set; } = .001;
@@ -19,15 +18,15 @@ namespace Redmask.Taghelpers.TagHelpers
 
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
-            var src = Model.Model != null ? FolderPath + Model.Model : DefaultAvatar;
-            var imgId = Model.Name + Guid.NewGuid().ToString().Split('-')[0];
-            var fileId = Model.Name + "file";
+            var src = Src != null ? FolderPath + Src : DefaultAvatar;
+            var imgId = Name + Guid.NewGuid().ToString().Split('-')[0];
+            var fileId = Name + "file";
             var maxAllowedKillobyte = (MaxKb + 6) * 1000;
 
             output.Content.SetHtmlContent($@"
-<img src='{ src}' id='{imgId}' style='height:100%; cursor:pointer;min-height:50px;border:2px solid red;{ImgCss}' class='{ImgClass}' />
+<img src='{ src}' id='{imgId}' style='height:100%; cursor:pointer;min-height:50px;border:1px dashed green;{ImgCss}' class='{ImgClass}' />
 <input type='file' name='{fileId}' id='{fileId}' style='display:none' accept='image/*' />
-{ScriptHelper.AddJquery()}
+
 <script>
     $('#{imgId}').click(function () {{ $('#{fileId}').trigger('click'); }});
     $('#{fileId}').on('change', function (evt) {{   

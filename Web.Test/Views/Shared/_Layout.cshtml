@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using Redmask.Taghelpers
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -6,17 +7,13 @@
     <title>@ViewData["Title"] - test</title>
 
 
-    <link href="/_content/Redmask.Taghelpers/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/_content/Redmask.Taghelpers/lib/line-awesome-1.3.0/css/line-awesome.min.css" rel="stylesheet" />
-    <link href="/_content/Redmask.Taghelpers/lib/kendo2020/kendo.default-v2.min.css" rel="stylesheet" />
-    <link href="/_content/Redmask.Taghelpers/lib/MD.BootstrapPersianDateTimePicker/jquery.md.bootstrap.datetimepicker.style.css" rel="stylesheet" />
-    <link href="/_content/Redmask.Taghelpers/lib/AdminLTE-3.0.2/css/adminlte.css" rel="stylesheet" />
-    <link href="/_content/Redmask.Taghelpers/lib/persian.css" rel="stylesheet" />
+
+    @Html.RedmaskCss(new CssHelper().Bootstrap4().PersianDateTimePicker().Kendo2020().AdminLTE().PersianCss())
     @{
         var themeColor = "#0ea960";
     }
     <style>
-        
+
         .main-header {
             color: #fff;
             background-color: @themeColor;
@@ -53,6 +50,7 @@
             font-size: 26px;
         }
     </style>
+    <script src="~/_content/Redmask.Taghelpers/lib/jquery/jquery.min.js"></script>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed text-sm">
     <div class="wrapper">
@@ -119,7 +117,7 @@
                         <a href="#" class="dropdown-item">
                             <!-- Message Start -->
                             <div class="media">
-                                <img  class="img-size-50 mr-3 img-circle" style="max-width: 100%;">
+                                <img class="img-size-50 mr-3 img-circle" style="max-width: 100%;">
                                 <div class="media-body">
 
 
@@ -147,7 +145,7 @@
         <aside class="main-sidebar sidebar-light-primary border-left" style=" font-size: 14px;">
             <!-- Brand Logo -->
             <a href="/" class="brand-link">
-                <img src="~/_files/imgs/favicon.png" alt="Logo" class="brand-image img-circle elevation-3"
+                <img src="~/favicon.ico" alt="Logo" class="brand-image img-circle elevation-3"
                      style="opacity: .8">
                 <span class="brand-text font-weight-light">redmask</span>
             </a>
@@ -309,13 +307,14 @@
     </div>
 
 
-    <script src="/_content/Redmask.Taghelpers/lib/jquery/jquery.min.js"></script>
-    <script src="/_content/Redmask.Taghelpers/lib/MD.BootstrapPersianDateTimePicker/jalaali.js"></script>
-    <script src="/_content/Redmask.Taghelpers/lib/MD.BootstrapPersianDateTimePicker/jquery.md.bootstrap.datetimepicker.js"></script>
-    <script src="/_content/Redmask.Taghelpers/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="/_content/Redmask.Taghelpers/lib/AdminLTE-3.0.2/js/adminlte.js"></script>
-    <script src="/_content/Redmask.Taghelpers/lib/kendo2020/kendo.all.min.js"></script>
-    <script src="/_content/Redmask.Taghelpers/lib/tinymce5/tinymce.min.js"></script>
+    @*<script src="~/_content/Redmask.Taghelpers/lib/jquery/jquery.min.js"></script>
+        <script src="/_content/Redmask.Taghelpers/lib/MD.BootstrapPersianDateTimePicker/jalaali.js"></script>
+        <script src="/_content/Redmask.Taghelpers/lib/MD.BootstrapPersianDateTimePicker/jquery.md.bootstrap.datetimepicker.js"></script>
+        <script src="/_content/Redmask.Taghelpers/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="/_content/Redmask.Taghelpers/lib/AdminLTE-3.0.2/js/adminlte.js"></script>
+        <script src="/_content/Redmask.Taghelpers/lib/kendo2020/kendo.all.min.js"></script>
+        <script src="/_content/Redmask.Taghelpers/lib/tinymce5/tinymce.min.js"></script>*@
+    @Html.RedmaskJs(new ScriptHelper2().Bootstrap4().PersianDateTimePicker().Kendo2020().AdminLTE().TinyMCE5())
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

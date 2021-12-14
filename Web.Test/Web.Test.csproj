@@ -28,7 +28,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Redmask.Taghelpers\Redmask.Taghelpers.csproj" />
+    <ProjectReference Include="..\src\Redmask.Taghelpers\Redmask.Taghelpers.csproj" />
   </ItemGroup>
 
 </Project>

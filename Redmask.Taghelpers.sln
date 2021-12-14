@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.30524.135
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Web.Test", "Web.Test\Web.Test.csproj", "{986237B4-F189-4434-BDC2-68687852837B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Redmask.Taghelpers", "Redmask.Taghelpers\Redmask.Taghelpers.csproj", "{103F9E71-1426-4769-BAB7-4553447AF92E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Redmask.Taghelpers", "src\Redmask.Taghelpers\Redmask.Taghelpers.csproj", "{75CDCD54-FEA1-4119-9860-DAC6EBF67F60}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{86A8BFC1-94C0-4C9B-BD48-D85C2D0E0AE4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,13 +19,16 @@ Global
 		{986237B4-F189-4434-BDC2-68687852837B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{986237B4-F189-4434-BDC2-68687852837B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{986237B4-F189-4434-BDC2-68687852837B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{103F9E71-1426-4769-BAB7-4553447AF92E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{103F9E71-1426-4769-BAB7-4553447AF92E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{103F9E71-1426-4769-BAB7-4553447AF92E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{103F9E71-1426-4769-BAB7-4553447AF92E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75CDCD54-FEA1-4119-9860-DAC6EBF67F60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75CDCD54-FEA1-4119-9860-DAC6EBF67F60}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75CDCD54-FEA1-4119-9860-DAC6EBF67F60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75CDCD54-FEA1-4119-9860-DAC6EBF67F60}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{75CDCD54-FEA1-4119-9860-DAC6EBF67F60} = {86A8BFC1-94C0-4C9B-BD48-D85C2D0E0AE4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {101D1947-9CB3-42E3-A30B-425C6B1B5272}

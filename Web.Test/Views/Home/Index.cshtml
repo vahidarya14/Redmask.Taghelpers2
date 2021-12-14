@@ -5,12 +5,12 @@
         <form asp-action="Index">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="row">
-                <div class="col-md-8">
+                <div class="col-md-12">
 
                     <ShareBtn use-current-url="true" class="float-left"></ShareBtn>
                     
                     <Bs4FormGroup label="عکس">
-                        <imageChooser name="Img2" src="/noimg.png"></imageChooser>
+                        <imageChooser  name="Img22" src="/noimg.png"></imageChooser>
                     </Bs4FormGroup>
 
                     <Bs4FormGroup label="عکس">
@@ -22,9 +22,8 @@
                     </Bs4FormGroup>
 
                     <Bs4FormGroup label="توضیحات">
-                        <TinyMce5For asp-for="Description">fddfdfda fasdf </TinyMce5For>
+                        <TinyMce5For asp-for="Description" language="fa_IR" directionality="rtl">fddfdfda fasdf </TinyMce5For>
                     </Bs4FormGroup>
-
 
 
 
