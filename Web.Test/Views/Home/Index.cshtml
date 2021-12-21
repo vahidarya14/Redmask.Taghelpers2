@@ -7,10 +7,11 @@
             <div class="row">
                 <div class="col-md-12">
 
-                    <ShareBtn use-current-url="true" class="float-left"></ShareBtn>
-                    
+                    <ShareBtn use-current-url="true" class="float-left btn-success"></ShareBtn>
+                    <Typing ></Typing>
+
                     <Bs4FormGroup label="عکس">
-                        <imageChooser  name="Img22" src="/noimg.png"></imageChooser>
+                        <imageChooser name="Img22" ></imageChooser>
                     </Bs4FormGroup>
 
                     <Bs4FormGroup label="عکس">
@@ -22,17 +23,17 @@
                     </Bs4FormGroup>
 
                     <Bs4FormGroup label="توضیحات">
+
                         <TinyMce5For asp-for="Description" language="fa_IR" directionality="rtl">fddfdfda fasdf </TinyMce5For>
                     </Bs4FormGroup>
 
 
-
                     <div class="form-group">
-                        <input type="submit" value="Save" class="btn btn-primary"/>
+                        <input type="submit" value="Save" class="btn btn-primary" />
                     </div>
                 </div>
             </div>
-          
+
         </form>
     </div>
 </div>
