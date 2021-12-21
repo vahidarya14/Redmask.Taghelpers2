@@ -54,9 +54,9 @@ namespace Redmask.Taghelpers
 
         private void LoadSettings()
         {
-            _settings = JsonConvert.DeserializeObject<Dictionary<string, string>>(System.IO.File.ReadAllText(_systemRootPath + "/wwwroot/fileman/conf.json"));
-            string langFile = _systemRootPath + "/wwwroot/fileman/lang/" + GetSetting("LANG") + ".json";
-            if (!System.IO.File.Exists(langFile)) langFile = _systemRootPath + "/wwwroot/fileman/lang/en.json";
+            _settings = JsonConvert.DeserializeObject<Dictionary<string, string>>(System.IO.File.ReadAllText(_systemRootPath + "/wwwroot/_content/Redmask.Taghelpers/fileman/conf.json"));
+            string langFile = _systemRootPath + "/wwwroot/_content/Redmask.Taghelpers/fileman/lang/" + GetSetting("LANG") + ".json";
+            if (!System.IO.File.Exists(langFile)) langFile = _systemRootPath + "/wwwroot/_content/Redmask.Taghelpers/fileman/lang/en.json";
             _lang = JsonConvert.DeserializeObject<Dictionary<string, string>>(System.IO.File.ReadAllText(langFile));
         }
 

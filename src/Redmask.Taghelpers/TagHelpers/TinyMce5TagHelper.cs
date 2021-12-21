@@ -58,7 +58,7 @@ namespace Redmask.Taghelpers.TagHelpers
             file_picker_callback_types: 'file image media',
             file_picker_callback: (callback, value, type)=> {{
 
-                        var roxyFileman = '/fileman/index.html';
+                        var roxyFileman = '/_content/Redmask.Taghelpers/fileman/index.html';
                         roxyFileman += (roxyFileman.indexOf('?') < 0 ? '?' : '&') + 'type=' + type.filetype;
                         if (value)
                             roxyFileman += '&value=' + value; // a link to already chosen image if it exists
