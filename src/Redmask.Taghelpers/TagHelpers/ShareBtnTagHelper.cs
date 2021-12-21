@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
@@ -19,12 +20,12 @@ namespace Redmask.Taghelpers.TagHelpers
 
         public override Task ProcessAsync(TagHelperContext context, TagHelperOutput output)
         {
-
+            var customeClass=context.AllAttributes.FirstOrDefault(x => x.Name.ToLower() == "class")?.Value ?? "";
             var currentUrl = UseCurrentUrl ? $"{Request.Scheme}://{Request.Host}{Request.Path}{Request.QueryString}" : Url;
             //var aaa = Request.GetDisplayUrl();
             output.Content.SetHtmlContent($@"       
 <div class='dropdown'>
-    <button class='btn btn-sm btn-danger' type='button'  data-toggle='dropdown'>
+    <button class='btn btn-sm {customeClass}' type='button'  data-toggle='dropdown'>
         <i class='las la-share-alt-square la-2x'></i>
     </button>
     <div class='dropdown-menu' >
