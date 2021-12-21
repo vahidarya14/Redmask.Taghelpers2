@@ -8,6 +8,7 @@ namespace Redmask.Taghelpers.TagHelpers
     public class TinyMce5TagHelper : TagHelper
     {
         public string Id { get; set; }
+        public string Language { get; set; }// = "fa_IR";
 
         public async override Task ProcessAsync(TagHelperContext context, TagHelperOutput output)
         {
@@ -24,7 +25,7 @@ namespace Redmask.Taghelpers.TagHelpers
 
         tinyMCE.init({{
             selector: '#{Id}',
-            language: 'fa_IR',
+            language: '{Language}',
             //mode: 'textareas',
             //theme: 'modern',
             //inline_styles: true,
