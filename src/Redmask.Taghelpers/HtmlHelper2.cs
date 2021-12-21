@@ -7,9 +7,9 @@ namespace Redmask.Taghelpers
 {
     public static class HtmlHelperExt
     {
-        public static IHtmlContent RedmaskJs(this IHtmlHelper html, ScriptsPool a) => new HtmlString(a.ToString());
+        public static IHtmlContent RedmaskJs(this IHtmlHelper html, ScriptsPool a) => a.ToString();
 
-        public static IHtmlContent RedmaskCss(this IHtmlHelper html, CssPool a) => new HtmlString(a.ToString());
+        public static IHtmlContent RedmaskCss(this IHtmlHelper html, CssPool a) => a.ToString();
     }
 
     public class ScriptsPool
@@ -53,7 +53,7 @@ namespace Redmask.Taghelpers
             return this;
         }
 
-        public override string ToString() => string.Join("\r\n", Js);
+        public new HtmlString ToString() => new (string.Join("\r\n", Js));
     }
 
     public class CssPool
@@ -94,8 +94,9 @@ namespace Redmask.Taghelpers
             return this;
         }
 
-        public override  string ToString() => 
-            string.Join("\r\n", Css.Select(x => $"<link href='{package}{x}' rel='stylesheet' />"));
+        public new HtmlString ToString() => new(
+            string.Join("\r\n", Css.Select(x => $"<link href='{package}{x}' rel='stylesheet' />"))
+            );
 
     }
 }
