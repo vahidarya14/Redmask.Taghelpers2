@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Globalization;
-using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 
 namespace Redmask.Taghelpers.TagHelpers
@@ -9,29 +8,23 @@ namespace Redmask.Taghelpers.TagHelpers
     public class PersianDatePickerTagHelper : TagHelper
     {
         private const string DescriptionAttributeName = "id";
+        [HtmlAttributeName(DescriptionAttributeName)] public string Id { get; set; }
 
-        [HtmlAttributeName(DescriptionAttributeName)]
-        public string Id { get; set; }
+        [HtmlAttributeName("class")] public string ClassInput { get; set; }
 
-        [HtmlAttributeName("dt")]
-        public DateTime? Value { get; set; }
+        [HtmlAttributeName("dt")] public DateTime? Value { get; set; }
 
 
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
             var dt = Value;
-            var enabletimepicker = "true";
 
-            //{ ScriptHelper.AddJquery()}
-            //{ ScriptHelper.AddScript("/lib/MD.BootstrapPersianDateTimePicker/jalaali.js")}
-            //{ ScriptHelper.AddScript("/lib/MD.BootstrapPersianDateTimePicker/jquery.md.bootstrap.datetimepicker.js")}
-            //<link href = '/lib/MD.BootstrapPersianDateTimePicker/jquery.md.bootstrap.datetimepicker.style.css' rel = 'stylesheet' >
             output.Content.SetHtmlContent($@"
 <div class='input-group mb-3'>
-        <input class='form-control' id='{Id}2' value='{(!dt.HasValue ? "" : ToPersian(dt.Value))}'>
+        <input class='form-control {ClassInput}' id='{Id}2' value='{(!dt.HasValue ? "" : ToPersian(dt.Value))}'>
         <input type='hidden' id='{Id}'  name='{Id}'  value='{dt}'  />
         <div class='input-group-prepend'>
-            <span class='input-group-text' id='basic-addon1'><i class='icofont-calendar'></i></span>
+            <span class='input-group-text p-0' ><i class='las la-calendar la-2x'></i></span>
         </div>
 </div>
 
@@ -50,7 +43,7 @@ namespace Redmask.Taghelpers.TagHelpers
 </script> 
 ");
         }
-        public static string ToPersian(DateTime d, bool includeTime = false)
+        static string ToPersian(DateTime d, bool includeTime = false)
         {
             PersianCalendar pc = new();
             return !includeTime ? $"{pc.GetYear(d)}/{pc.GetMonth(d):00}/{pc.GetDayOfMonth(d):00}" :

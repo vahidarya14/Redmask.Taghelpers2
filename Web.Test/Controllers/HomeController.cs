@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Web.Test.Controllers
 {
@@ -10,7 +8,7 @@ namespace Web.Test.Controllers
         public  IActionResult Index()
         {
 
-            return View(new Product());
+            return View(new Product(){IsActive = true});
         }
 
         [HttpPost]
@@ -27,8 +25,10 @@ namespace Web.Test.Controllers
     public class Product
     {
         public int Id { get; set; }
+        public string Name { get; set; }
         public string Img { get; set; }
         public string Description { get; set; }
+        public bool IsActive { get; set; }
         public DateTime CreateDate { get; set; } = DateTime.Now;
     }
 

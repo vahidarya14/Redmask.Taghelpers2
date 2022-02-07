@@ -1,5 +1,39 @@
 ﻿@model Web.Test.Controllers.Product
+<style>
+    .bubble {
+        background-color: #fac400;
+        height: 36px;
+        width: 64px;
+        padding: 0 8px;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        border-radius: 18px;
+        border-top-right-radius: 4px;
+    }
+    .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: #eeeeee;
+        animation: bounce 1000ms infinite;
+    }
+    .dot:nth-of-type(2) {
+        -wekit-animation-delay: 50ms;
+        animation-delay: 50ms;
+    }
+    .dot:nth-of-type(3) {
+        -wekit-animation-delay: 100ms;
+        animation-delay: 100ms;
+    }
+    @@keyframs bounce {
+        0% {transform: translateY(0);}
 
+        10% {transform: translateY(2px);}
+
+        20% {transform: translateY(0);}
+    }
+</style>
 <div class="card">
     <div class="card-body">
         <form asp-action="Index">
@@ -11,7 +45,31 @@
                     <Typing ></Typing>
 
                     <Bs4FormGroup label="عکس">
-                        <imageChooser name="Img22" ></imageChooser>
+                        <imageChooser name="Img22"></imageChooser>
+                    </Bs4FormGroup>
+
+
+                    <FloatingLabelInputGroupFor asp-for="Name" label="نام" >
+                        <input class="form-control" asp-for="Name" type="text" placeholder="Name"/>
+                        <FloatingLabelInputGroupAddOn >
+                            <button class="btn btn-navbar" type="submit">
+                                <i class="las la-search"></i>
+                            </button>
+                        </FloatingLabelInputGroupAddOn>
+                    </FloatingLabelInputGroupFor>
+
+
+                    <FloatingLabelInputFor asp-for="Name" label="کشور">
+                        <select class="form-control custom-select">
+                            <option selected>United States</option>
+                            <option>Canada</option>
+                            <option>...</option>
+                        </select>
+                    </FloatingLabelInputFor>
+
+
+                    <Bs4FormGroup label="عکس">
+                        <SwitchFor asp-for="IsActive" label="Is Active"></SwitchFor>
                     </Bs4FormGroup>
 
                     <Bs4FormGroup label="عکس">
@@ -29,7 +87,7 @@
 
 
                     <div class="form-group">
-                        <input type="submit" value="Save" class="btn btn-primary" />
+                        <input type="submit" value="Save" class="btn btn-primary"/>
                     </div>
                 </div>
             </div>
@@ -37,4 +95,3 @@
         </form>
     </div>
 </div>
-

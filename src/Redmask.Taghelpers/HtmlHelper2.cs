@@ -20,6 +20,19 @@ namespace Redmask.Taghelpers
             $"<script src='{Package}jquery/jquery.min.js' ></script>"
         };
 
+        public ScriptsPool ModalHelper()
+        {
+            Js.Add($"<script src='{Package}ModalHelper.js'></script>");
+            return this;
+        }
+        
+        public ScriptsPool Helper()
+        {
+            Js.Add($"<script src='{Package}Helper.js'></script>");
+            Js.Add($"<script src='{Package}Helper2.js'></script>");
+            return this;
+        }
+        
         public ScriptsPool Bootstrap4()
         {
             Js.Add($"<script src='{Package}bootstrap/js/bootstrap.bundle.min.js'></script>");
@@ -61,6 +74,7 @@ namespace Redmask.Taghelpers
         private const string package = "/_content/Redmask.Taghelpers/lib/";
         private List<string> Css = new()
         {
+            "main.css",
             "line-awesome-1.3.0/css/line-awesome.min.css"
         };
 
