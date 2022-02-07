@@ -58,7 +58,7 @@ namespace Redmask.Taghelpers.TagHelpers
                 {{ text: 'C#', value: 'csharp' }},
                 {{ text: 'C++', value: 'cpp' }}
             ],
-            toolbar1: 'fullscreen | undo redo |forecolor backcolor |ltr rtl | styleselect | fontselect | fontsizeselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link | code codesample image emoticons ',
+            toolbar1: 'fullscreen | undo redo |forecolor backcolor |rtl ltr| styleselect | fontselect | fontsizeselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link | code codesample image emoticons ',
             codesample_global_prismjs: true,
             file_picker_callback_types: 'file image media',
             file_picker_callback: (callback, value, type)=> {{
