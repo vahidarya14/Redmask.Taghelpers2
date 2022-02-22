@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Net;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 
@@ -20,10 +21,12 @@ namespace Redmask.Taghelpers.TagHelpers
             {
                 var Id = AspFor.Name;
                 var c = AspFor.Model;
+                string encodedChildContent = WebUtility.HtmlEncode(c?.ToString() ?? string.Empty);
 
-//{ScriptHelper.AddJquery()}
-//{ScriptHelper.AddScript("/lib/tinymce5/tinymce.min.js")}
-                var aa = $@"<textarea name='{Id}' id='{Id}' class='form-control' >{c}</textarea>
+
+                //{ScriptHelper.AddJquery()}
+                //{ScriptHelper.AddScript("/lib/tinymce5/tinymce.min.js")}
+                var aa = $@"<textarea name='{Id}' id='{Id}' class='form-control' >{encodedChildContent}</textarea>
 <script>
     $().ready(function () {{
 
