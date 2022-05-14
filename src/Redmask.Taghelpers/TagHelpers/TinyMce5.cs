@@ -55,7 +55,8 @@ namespace Redmask.Taghelpers.TagHelpers
                 {{ text: 'Python', value: 'python' }},
                 {{ text: 'PHP', value: 'php' }},
                 {{ text: 'C', value: 'c' }},
-                {{ text: 'C++', value: 'cpp' }}
+                {{ text: 'C++', value: 'cpp' }},
+                {{ text: 'docker', value: 'docker' }},
             ],
             toolbar1: 'fullscreen | undo redo |forecolor backcolor |rtl ltr| styleselect | fontselect | fontsizeselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link | code codesample image emoticons ',
             codesample_global_prismjs: true,
