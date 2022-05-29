@@ -1,4 +1,4 @@
-﻿@@font-face {
+﻿@font-face {
     font-family: 'IRANsans';
     src: url('/_content/Redmask.Taghelpers/lib/fonts/iransans.ttf') format('truetype'), url('/_content/Redmask.Taghelpers/lib/fonts/iransans.ttf') format('truetype');
 }
@@ -11,8 +11,13 @@
 
 
 /************admin-lte rtl */
-*:not(.ltr):not(.input-group) {
+*:not(.ltr):not(.input-group):not(.tox-textarea) {
     direction: rtl !important;
+}
+
+.tox-textarea {
+    text-align: left !important;
+    direction: ltr !important;
 }
 
 .ltr {
