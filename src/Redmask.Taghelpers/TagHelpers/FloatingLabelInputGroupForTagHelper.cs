@@ -4,29 +4,40 @@ using Microsoft.AspNetCore.Razor.TagHelpers;
 
 namespace Redmask.Taghelpers.TagHelpers
 {
-    [HtmlTargetElement("FloatingLabelInputGroupFor",Attributes = DescriptionAttributeName, TagStructure = TagStructure.NormalOrSelfClosing)]
-    public class FloatingLabelInputGroupForTagHelper: TagHelper
+    [HtmlTargetElement("FloatingLabelInputGroup",TagStructure = TagStructure.NormalOrSelfClosing)]
+    //[RestrictChildren("input", "select","textarea", "inputGroupAddon")]
+    public class FloatingLabelInputGroupTagHelper : TagHelper
     {
-        private const string DescriptionAttributeName = "asp-for";
-        [HtmlAttributeName(DescriptionAttributeName)] public ModelExpression Model { get; set; }
-        
-        public string Label { get; set; } 
-        
-        public string Addon { get; set; }
+        public string Label { get; set; }
+
+        public FloatingLabelInputGroupAddOnTagHelper Addon { get; set; }
 
         public override async Task ProcessAsync(TagHelperContext context, TagHelperOutput output)
         {
+            var ch = await output.GetChildContentAsync();
+            var c = (await output.GetChildContentAsync()).GetContent();
+            var addOn = c.Split("<inputGroupAddon>")[1].Split("</inputGroupAddon>")[0];
+            var input = c.Replace(addOn, "").Replace("<inputGroupAddon>", "").Replace("</inputGroupAddon>", "");
 
+            output.Content.SetHtmlContent(
+                            $@"<div class='input-group mb-3 has-float-label'>   
+                                {input}
+                                <label>{Label}</label>
+                                {addOn}
+                            </div>");
+            await base.ProcessAsync(context, output);
+        }
+    }
+
+    [HtmlTargetElement("inputGroupAddon", TagStructure = TagStructure.NormalOrSelfClosing,ParentTag = "FloatingLabelInputGroup")]
+    public class FloatingLabelInputGroupAddOnTagHelper : TagHelper
+    {
+        public override async Task ProcessAsync(TagHelperContext context, TagHelperOutput output)
+        {
             var c = (await output.GetChildContentAsync()).GetContent();
 
-            output.Content.SetHtmlContent($@"<div class='form-group input-group'>
-                                                <span class='input-group-addon'>{Addon}</span>
-                                                 <div class='has-float-label'>
-                                                     {c}
-                                                     <label>{Label}</label>
-                                                 </div>
-                                             </div>");
-            await  base.ProcessAsync(context, output);
+            output.Content.SetHtmlContent($@"<div class='input-group-addon p-0'>{c}</div>");
+            await base.ProcessAsync(context, output);
         }
     }
 }

@@ -6,13 +6,10 @@ namespace Redmask.Taghelpers.TagHelpers
     [HtmlTargetElement("Bs4FormGroup", TagStructure = TagStructure.NormalOrSelfClosing)]
     public class Bs4FormGroupTagHelper : TagHelper
     {
-        //[HtmlAttributeName("asp-for")] public ModelExpression AspFor { get; set; }
-
         public string Label { get; set; } 
 
         public override async Task ProcessAsync(TagHelperContext context, TagHelperOutput output)
         {
-
             var c = (await output.GetChildContentAsync()).GetContent();
 
             output.Content.SetHtmlContent($@"       
@@ -22,9 +19,9 @@ namespace Redmask.Taghelpers.TagHelpers
                     {c}
                 </div>
             </div>");
+
             await  base.ProcessAsync(context, output);
         }
-
 
     }
 }

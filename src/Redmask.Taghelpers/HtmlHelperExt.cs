@@ -66,6 +66,12 @@ namespace Redmask.Taghelpers
             return this;
         }
 
+        public ScriptsPool TagInput()
+        {
+            Js.Add($"<script src='{Package}Bootstrap-4-Tag-Input-Plugin-jQuery/tagsinput.js'></script>");
+            return this;
+        }
+
         public new HtmlString ToString() => new (string.Join("\r\n", Js));
     }
 
@@ -105,6 +111,12 @@ namespace Redmask.Taghelpers
         public CssPool PersianCss()
         {
             Css.Add($"persian.css");
+            return this;
+        }
+
+        public CssPool TagInput()
+        {
+            Css.Add($"Bootstrap-4-Tag-Input-Plugin-jQuery/tagsinput.css");
             return this;
         }
 
