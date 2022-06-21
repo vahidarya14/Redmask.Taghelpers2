@@ -3,8 +3,8 @@ using Microsoft.AspNetCore.Razor.TagHelpers;
 
 namespace Redmask.Taghelpers.TagHelpers
 {
-    [HtmlTargetElement("FloatingLabelInputFor", TagStructure = TagStructure.NormalOrSelfClosing)]
-    public class FloatingLabelInputForTagHelper: TagHelper
+    [HtmlTargetElement("FloatingLabelInput", TagStructure = TagStructure.NormalOrSelfClosing)]
+    public class FloatingLabelInputTagHelper: TagHelper
     {
         public string Label { get; set; } 
 

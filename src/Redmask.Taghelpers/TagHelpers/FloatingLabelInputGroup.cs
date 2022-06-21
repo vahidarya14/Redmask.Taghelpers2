@@ -14,16 +14,16 @@ namespace Redmask.Taghelpers.TagHelpers
 
         public override async Task ProcessAsync(TagHelperContext context, TagHelperOutput output)
         {
-            var ch = await output.GetChildContentAsync();
             var c = (await output.GetChildContentAsync()).GetContent();
-            var addOn = c.Split("<inputGroupAddon>")[1].Split("</inputGroupAddon>")[0];
+            var addOn =!c.Contains("<inputGroupAddon>")?"      ":
+                        c.Split("<inputGroupAddon>")[1].Split("</inputGroupAddon>")[0];
             var input = c.Replace(addOn, "").Replace("<inputGroupAddon>", "").Replace("</inputGroupAddon>", "");
 
             output.Content.SetHtmlContent(
                             $@"<div class='input-group mb-3 has-float-label'>   
                                 {input}
-                                <label>{Label}</label>
-                                {addOn}
+                                {(string.IsNullOrWhiteSpace(Label)?"":$"<label>{Label}</label>")}
+                                {addOn.Trim()}
                             </div>");
             await base.ProcessAsync(context, output);
         }
