@@ -8,7 +8,7 @@
 
 
 
-    @Html.RedmaskCss(new CssPool().Bootstrap4().PersianDateTimePicker().Kendo2020().AdminLTE().PersianCss())
+    @Html.RedmaskCss(new CssPool().Bootstrap4().PersianDateTimePicker().Kendo2020().AdminLTE().TagInput().PersianCss())
     @{
         var themeColor = "#0ea960";
     }
@@ -69,12 +69,11 @@
 
             <!-- SEARCH FORM -->
             <form class="form-inline">
-                <div class="input-group input-group-sm ltr">
-                    <input class="form-control form-control-navbar" type="search" placeholder="جستجو" aria-label="Search">
-                    <div class="input-group-append">
-                        <button class="btn btn-navbar" type="submit">
-                            <i class="las la-search"></i>
-                        </button>
+                <div class="input-group input-group-sm">
+
+                    <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-sm">Small</span>
                     </div>
                 </div>
             </form>
@@ -314,7 +313,7 @@
         <script src="/_content/Redmask.Taghelpers/lib/AdminLTE-3.0.2/js/adminlte.js"></script>
         <script src="/_content/Redmask.Taghelpers/lib/kendo2020/kendo.all.min.js"></script>
         <script src="/_content/Redmask.Taghelpers/lib/tinymce5/tinymce.min.js"></script>*@
-    @Html.RedmaskJs(new ScriptsPool().Bootstrap4().PersianDateTimePicker().Kendo2020().AdminLTE().TinyMCE5())
+    @Html.RedmaskJs(new ScriptsPool().Bootstrap4().PersianDateTimePicker().Kendo2020().AdminLTE().TinyMCE5().TagInput())
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

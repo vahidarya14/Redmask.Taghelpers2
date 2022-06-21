@@ -13,9 +13,6 @@ namespace Redmask.Taghelpers.TagHelpers
     <div class='dot'></div>
     <div class='dot'></div>
 </div>
-<style>
-
-</style>
 ");
         }
 

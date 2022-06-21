@@ -33,57 +33,68 @@
 
         20% {transform: translateY(0);}
     }
+
+    .has-float-label>label{
+        color: #0ea960;
+    }
 </style>
 <div class="card">
     <div class="card-body">
+
         <form asp-action="Index">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="row">
                 <div class="col-md-12">
 
                     <ShareBtn use-current-url="true" class="float-left btn-success"></ShareBtn>
-                    <Typing ></Typing>
-
-                    <Bs4FormGroup label="عکس">
-                        <imageChooser name="Img22"></imageChooser>
-                    </Bs4FormGroup>
-
-
-                    <FloatingLabelInputGroupFor asp-for="Name" label="نام" >
-                        <input class="form-control" asp-for="Name" type="text" />
-                        <FloatingLabelInputGroupAddOn >
+                    <FloatingLabelInputGroup label="First and last name">
+                        <input class="form-control" asp-for="Name"  type="text" />
+                        <input class="form-control" asp-for="Family" type="text">
+                        <inputGroupAddon>
                             <button class="btn btn-navbar" type="submit">
                                 <i class="las la-search"></i>
                             </button>
-                        </FloatingLabelInputGroupAddOn>
-                    </FloatingLabelInputGroupFor>
+                        </inputGroupAddon>
+                    </FloatingLabelInputGroup>
 
+                    <FloatingLabelInput label="آواتار">
+                        <imageChooserfor asp-for="Img"></imageChooserfor>
+                    </FloatingLabelInput>
 
-                    <FloatingLabelInputFor asp-for="Name" label="کشور">
+                    <FloatingLabelInputGroup  label="نام" >
+                        <input class="form-control" asp-for="Name" placeholder="نام" type="text" />
+                    </FloatingLabelInputGroup>
+
+                    <FloatingLabelInputGroup label="Family">
+                        <input class="form-control" asp-for="Family" placeholder="Family"  />
+                    </FloatingLabelInputGroup>
+
+                    <FloatingLabelInput asp-for="Name" label="کشور">
                         <select class="form-control custom-select">
                             <option selected>United States</option>
                             <option>Canada</option>
                             <option>...</option>
                         </select>
-                    </FloatingLabelInputFor>
+                    </FloatingLabelInput>
 
+                    <FloatingLabelInput asp-for="Tags" label="tags">
+                        <TagInputFor asp-for="Tags" ></TagInputFor>
+                    </FloatingLabelInput>
 
-                    <Bs4FormGroup label="عکس">
+                    <Bs4FormGroup label="">
                         <SwitchFor asp-for="IsActive" label="Is Active"></SwitchFor>
                     </Bs4FormGroup>
 
-                    <Bs4FormGroup label="عکس">
-                        <imageChooserfor asp-for="Img"></imageChooserfor>
-                    </Bs4FormGroup>
 
-                    <Bs4FormGroup label="تاریخ ایحاد">
+
+                    <FloatingLabelInput label="تاریخ ایحاد">
                         <PersianDatePickerFor asp-for="CreateDate"></PersianDatePickerFor>
-                    </Bs4FormGroup>
+                    </FloatingLabelInput>
 
-                    <Bs4FormGroup label="توضیحات">
+                    <FloatingLabelInput label="توضیحات">
 
                         <TinyMce5For asp-for="Description" language="fa_IR" directionality="rtl">fddfdfda fasdf </TinyMce5For>
-                    </Bs4FormGroup>
+                    </FloatingLabelInput>
 
 
                     <div class="form-group">
