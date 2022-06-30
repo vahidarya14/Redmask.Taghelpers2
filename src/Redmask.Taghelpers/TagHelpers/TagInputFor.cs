@@ -14,10 +14,12 @@ namespace Redmask.Taghelpers.TagHelpers
         {
             output.Content.SetHtmlContent($@"
     <input data-role='tagsinput' value='{Model.Model?.ToString().Replace(", ", ",") ?? ""}' id='{Model.Name}_2' />
-    <input value='@({Model.Model})' name='{Model.Name}' id='{Model.Name}' type='hidden' />
+    <input value='{Model.Model}' name='{Model.Name}' id='{Model.Name}' type='hidden' />
     <script>
-        $('#{Model.Name}_2').on('itemAdded',   function (e) {{ $('[name={Model.Name}]').val($(this).tagsinput()[0].itemsArray.join(', ')); }});
-        $('#{Model.Name}_2').on('itemRemoved', function (e) {{ $('[name={Model.Name}]').val($(this).tagsinput()[0].itemsArray.join(', ')); }});
+        $().ready(function(){{
+            $('#{Model.Name}_2').on('itemAdded',   function (e) {{ $('[name={Model.Name}]').val($(this).tagsinput()[0].itemsArray.join('#$%')); }});
+            $('#{Model.Name}_2').on('itemRemoved', function (e) {{ $('[name={Model.Name}]').val($(this).tagsinput()[0].itemsArray.join('#$%')); }});        
+        }});
     </script>
 ");
         }
