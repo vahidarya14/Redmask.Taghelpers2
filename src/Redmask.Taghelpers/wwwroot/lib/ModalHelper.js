@@ -75,7 +75,7 @@ const modalHelper = {
             '   <div class="modal-dialog ' + lgClass + '">                                                                        ' +
             '      <div class="modal-content" id="modal-content-' + modalId + '">                                                                                    ' +
             '        <div class="modal-header">                                                                                     ' +
-            '           <button type="button" class="close" onclick="modalHelper.closeActiveModal(' + modalId + ');">&times;</button>                                      ' +
+            '           <button type="button" class="close py-2" onclick="modalHelper.closeActiveModal(' + modalId + ');">&times;</button>                                      ' +
             '           <h5 class="modal-title pull-left">' + title + '</h5>                                                                    ' +
             '        </div>                                                                                                         ' +
             '        <div class="modal-body" id="modelBody-' + modalId + '" >' + 'loading...' + '</div>                                         ' +
