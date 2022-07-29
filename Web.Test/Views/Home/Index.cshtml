@@ -11,6 +11,7 @@
         border-radius: 18px;
         border-top-right-radius: 4px;
     }
+
     .dot {
         width: 8px;
         height: 8px;
@@ -18,26 +19,53 @@
         background-color: #eeeeee;
         animation: bounce 1000ms infinite;
     }
-    .dot:nth-of-type(2) {
-        -wekit-animation-delay: 50ms;
-        animation-delay: 50ms;
-    }
-    .dot:nth-of-type(3) {
-        -wekit-animation-delay: 100ms;
-        animation-delay: 100ms;
-    }
+
+        .dot:nth-of-type(2) {
+            -wekit-animation-delay: 50ms;
+            animation-delay: 50ms;
+        }
+
+        .dot:nth-of-type(3) {
+            -wekit-animation-delay: 100ms;
+            animation-delay: 100ms;
+        }
+
     @@keyframs bounce {
-        0% {transform: translateY(0);}
+        0% {
+            transform: translateY(0);
+        }
 
-        10% {transform: translateY(2px);}
+        10% {
+            transform: translateY(2px);
+        }
 
-        20% {transform: translateY(0);}
+        20% {
+            transform: translateY(0);
+        }
     }
 
-    .has-float-label>label{
+    .has-float-label > label {
         color: #0ea960;
     }
 </style>
+<filterPanel>
+    <dropDownFilterItem title="name" id="nameFilter">    </dropDownFilterItem>
+
+    <filterItem>
+        <filterBadge>
+            تاریخ:
+            <span class="badge badge-warning" id="dateFromFilter2-has"></span>
+            <span class="badge badge-warning" id="dateToFilter2-has"></span>
+            <i class="las la-angle-down"></i>
+        </filterBadge>
+        <filterBody>
+            <div class="p-2 pt-4">
+                <persianDatePicker class="filterInput" id="dateFromFilter"></persianDatePicker>
+                <persianDatePicker class="filterInput" id="dateToFilter"></persianDatePicker>
+            </div>
+        </filterBody>
+    </filterItem>
+</filterPanel>
 <div class="card">
     <div class="card-body">
 
@@ -48,7 +76,7 @@
 
                     <ShareBtn use-current-url="true" class="float-left btn-success"></ShareBtn>
                     <FloatingLabelInputGroup label="First and last name">
-                        <input class="form-control" asp-for="Name"  type="text" />
+                        <input class="form-control" asp-for="Name" type="text" />
                         <input class="form-control" asp-for="Family" type="text">
                         <inputGroupAddon>
                             <button class="btn btn-navbar" type="submit">
@@ -61,12 +89,12 @@
                         <imageChooserfor asp-for="Img"></imageChooserfor>
                     </FloatingLabelInput>
 
-                    <FloatingLabelInputGroup  label="نام" >
+                    <FloatingLabelInputGroup label="نام">
                         <input class="form-control" asp-for="Name" placeholder="نام" type="text" />
                     </FloatingLabelInputGroup>
 
                     <FloatingLabelInputGroup label="Family">
-                        <input class="form-control" asp-for="Family" placeholder="Family"  />
+                        <input class="form-control" asp-for="Family" placeholder="Family" />
                     </FloatingLabelInputGroup>
 
                     <FloatingLabelInput asp-for="Name" label="کشور">
@@ -78,7 +106,7 @@
                     </FloatingLabelInput>
 
                     <FloatingLabelInput asp-for="Tags" label="tags">
-                        <TagInputFor asp-for="Tags" ></TagInputFor>
+                        <TagInputFor asp-for="Tags"></TagInputFor>
                     </FloatingLabelInput>
 
                     <Bs4FormGroup label="">
@@ -98,7 +126,7 @@
 
 
                     <div class="form-group">
-                        <input type="submit" value="Save" class="btn btn-primary"/>
+                        <input type="submit" value="Save" class="btn btn-primary" />
                     </div>
                 </div>
             </div>
@@ -106,3 +134,4 @@
         </form>
     </div>
 </div>
+
