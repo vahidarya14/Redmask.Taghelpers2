@@ -50,7 +50,26 @@
 </style>
 <filterPanel>
     <dropDownFilterItem title="name" id="nameFilter">    </dropDownFilterItem>
-
+    <customeBobyFilter id="familyFilter" title="family">
+        <ol class="list-group list-group-numbered px-0">
+            <li class="list-group-item d-flex justify-content-between align-items-start">
+                <div class="form-check">
+                    <input class="filterInputfamilyFilter" type="checkbox" value="flexCheckDefault" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                        Default checkbox
+                    </label>
+                </div>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-start">
+                <div class="form-check">
+                    <input class="filterInputfamilyFilter" type="checkbox" value="flexCheckChecked" id="flexCheckChecked" checked>
+                    <label class="form-check-label" for="flexCheckChecked">
+                        Checked checkbox
+                    </label>
+                </div>
+            </li>
+        </ol>
+    </customeBobyFilter>
     <filterItem>
         <filterBadge>
             تاریخ:
@@ -134,4 +153,10 @@
         </form>
     </div>
 </div>
+@section Scripts{
+    <script>
+        var doFilter =function(){
 
+        }
+    </script>
+}

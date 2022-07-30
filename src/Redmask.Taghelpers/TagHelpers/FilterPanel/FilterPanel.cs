@@ -48,7 +48,7 @@ var filterOp = function () {{
                     if (keycode == '13') {{
                         let id = $(this).attr('id');
                         $(`#${{id}}-has`).html($(this).val());
-                        doFilter();
+                        doFilter2();
                     }}
                 }});
         }}
@@ -63,17 +63,25 @@ var filterOp = function () {{
                 else {{
                     $(`#${{c}}-has`).html(html.replace(val + ', ', ''));
                 }}
-                doFilter();
+                doFilter2();
             }});
         }}
         else if (type == 'datetime') {{
             $(this).change(function (event) {{
                 let id = $(this).attr('id');
                 $(`#${{id}}-has`).html($(this).val());
-                doFilter();
+                doFilter2();
             }});
         }}
     }});
+}}
+
+var doFilter2 = function(){{
+    if(typeof doFilter === 'function' ){{
+        //alert('function doFilter is not found');
+        return;
+    }}
+    doFilter();
 }}
 </script>
 <style>
@@ -91,7 +99,7 @@ var filterOp = function () {{
         width: 100%;
         min-width: 194px;
         display: none;
-        z-index: 2;
+        z-index: 4;
         list-style: none;
         background-color: #ffffff;
         background-clip: padding-box;
