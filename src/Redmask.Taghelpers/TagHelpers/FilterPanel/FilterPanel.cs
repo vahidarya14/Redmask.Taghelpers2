@@ -58,10 +58,10 @@ var filterOp = function () {{
                 let val = $(this).attr('data-lbl');
                 let html = $(`#${{c}}-has`).html() ?? '';
                 if (this.checked) {{
-                    $(`#${{c}}-has`).html(html + val + ', ');
+                    $(`#${{c}}-has`).html(html + '<span class=""badge badge-success ml-1"">'+val + '</span>');
                 }}
                 else {{
-                    $(`#${{c}}-has`).html(html.replace(val + ', ', ''));
+                    $(`#${{c}}-has`).html(html.replace('<span class=""badge badge-success ml-1"">'+val + '</span>', ''));
                 }}
                 doFilter2();
             }});
