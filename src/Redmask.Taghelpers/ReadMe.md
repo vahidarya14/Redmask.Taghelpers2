@@ -1,0 +1,44 @@
+# JsonMapper 
+
+## Description
+
+Map json object to another json dynamiclly using config  
+
+#### sample usage source:
+
+add this in head of site
+```
+    @Html.RedmaskCss(new CssPool().Bootstrap4().PersianDateTimePicker().Kendo2020().AdminLTE().TagInput().PersianCss())
+
+```
+and this in footer (or header)
+```
+    @Html.RedmaskJs(new ScriptsPool().Bootstrap4().PersianDateTimePicker().Kendo2020().AdminLTE().TinyMCE5().TagInput())
+
+```
+ add @addTagHelper *,Redmask.Taghelpers to _ViewImport.cshtml
+
+Done
+
+# usage
+
+#### imageChooser:
+```
+  <imageChooser asp-for="Icon" folder-path="@Setting.ContentsFolder" max-kb="1500" img-css="max-height:200px;border:2px solid blue;" ></imageChooser>
+```
+
+#### TagInput:
+```
+   <TagInputFor asp-for="Tags"></TagInputFor>
+```
+
+#### PersianDatePicker:
+```
+    <PersianDatePickerFor asp-for="CreateDate"></PersianDatePickerFor>
+```
+
+#### TinyMce5
+```
+  <TinyMce5For asp-for="Description" language="fa_IR" directionality="rtl">fddfdfda fasdf </TinyMce5For>
+
+```
