@@ -27,7 +27,12 @@ namespace Redmask.Taghelpers.TagHelpers
             output.Content.SetHtmlContent($@"
 <img src='{ src}' id='{imgId}' style='height:100%; cursor:pointer;min-height:50px;border:1px dashed red;{ImgCss}' class='{ImgClass}' />
 <input type='file' name='{fileId}' id='{fileId}' style='display:none' accept='image/*' />
-
+<button id='del_img_{fileId}' type='button' class='btn p-0' style='position: absolute;
+                                                               margin-right: -30px;
+                                                               background: #ffc0cba1;
+                                                               color: red;
+                                                               width: 29px;
+                                                               height: 29px;'><i class='las la-trash la-2x'></i></button>
 <script>
     $('#{imgId}').click(function () {{ $('#{fileId}').trigger('click'); }});
     $('#{fileId}').on('change', function (evt) {{   
@@ -64,7 +69,8 @@ namespace Redmask.Taghelpers.TagHelpers
                  fr.readAsDataURL(files[0]);                                                            
              }}   
              else{{}}
-     }});                           
+     }});  
+    $('#del_img_{fileId}').click(function () {{  document.getElementById('{imgId}').src ='{DefaultAvatar}';document.getElementById('{fileId}').value = null; }});
 </script>");
 
 

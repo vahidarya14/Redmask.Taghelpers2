@@ -90,17 +90,17 @@
                         <span class="dropdown-item dropdown-header">15 Notifications</span>
                         <div class="dropdown-divider"></div>
                         <a href="#" class="dropdown-item">
-                            <i class="fas fa-envelope mr-2"></i> 4 new messages
+                            <i class="las la-envelope mr-2"></i> 4 new messages
                             <span class="float-right text-muted text-sm">3 mins</span>
                         </a>
                         <div class="dropdown-divider"></div>
                         <a href="#" class="dropdown-item">
-                            <i class="fas fa-users mr-2"></i> 8 friend requests
+                            <i class="las la-users mr-2"></i> 8 friend requests
                             <span class="float-right text-muted text-sm">12 hours</span>
                         </a>
                         <div class="dropdown-divider"></div>
                         <a href="#" class="dropdown-item">
-                            <i class="fas fa-file mr-2"></i> 3 new reports
+                            <i class="las la-file mr-2"></i> 3 new reports
                             <span class="float-right text-muted text-sm">2 days</span>
                         </a>
                         <div class="dropdown-divider"></div>
@@ -144,13 +144,13 @@
         <aside class="main-sidebar sidebar-light-primary border-left" style=" font-size: 14px;">
             <!-- Brand Logo -->
             <a href="/" class="brand-link">
-                <img src="~/favicon.ico" alt="Logo" class="brand-image img-circle elevation-3"
+                <img src="~/lavicon.ico" alt="Logo" class="brand-image img-circle elevation-3"
                      style="opacity: .8">
                 <span class="brand-text font-weight-light">redmask</span>
             </a>
 
             <!-- Sidebar -->
-            <div class="sidebar">
+            <div class="sidebar p-0">
                 @*<div class="user-panel mt-1 pb-1 d-flex">
                     <div class="image">
                     <img src="@(Setting.UsersFolder)@User.Identity.GetAvatar()" class="img-circle elevation-2" alt="User Image">
@@ -162,88 +162,118 @@
                     </div>
                     </div>*@
 
-                <nav class="mt-2">
-                    <ul class="nav nav-pills nav-sidebar flex-column nav-flat nav-compact" data-widget="treeview" role="menu" data-accordion="false">
+                <nav class="mt-2 ">
 
-                        <li class="nav-item ">
-                            <a href="/Admin/Dashboard" class="nav-link">
-                                <i class="las la-tachometer-alt la-2x"></i>
-                                <p>داشبورد</p>
-                            </a>
-                        </li>
-                        <li class="nav-item ">
-                            <a href="/Admin/Settings" class="nav-link">
-                                <i class="las la-cog la-2x"></i>
-                                <p>تنظیمات</p>
-                            </a>
-                        </li>
-                        <li class="nav-item ">
-                            <a href="/Admin/Users" class="nav-link">
-                                <i class="las la-users la-2x"></i>
-                                <p>کاربران</p>
-                            </a>
-                        </li>
-                        <li class="nav-item ">
-                            <a href="/Admin/Medias" class="nav-link">
-                                <i class="las la-video la-2x"></i>
-                                <p>مدیا</p>
-                            </a>
-                        </li>
-                        <li class="nav-item ">
-                            <a href="/Admin/Newses" class="nav-link">
-                                <i class="las la-newspaper la-2x"></i>
-                                <p>اخبار<i class="right "></i></p>
-                            </a>
-                        </li>
-                        <li class="nav-item ">
-                            <a href="/Admin/Learnings" class="nav-link">
-                                <i class="las la-graduation-cap la-2x"></i>
-                                <p>آموزشها و مقالات<i class="right "></i></p>
-                            </a>
-                        </li>
-                        <li class="nav-item ">
-                            <a href="/Admin/Contents" class="nav-link">
-                                <i class="las la-file-alt la-2x"></i>
-                                <p> صفحات و مطالب<i class="right "></i></p>
-                            </a>
-                        </li>
-                        <li class="nav-item ">
-                            <a href="/Admin/SlidShows" class="nav-link">
-                                <i class="lab la-slideshare la-2x"></i>
-                                <p>اسلایدشو<i class="right "></i></p>
-                            </a>
-                        </li>
-                        <li class="nav-item ">
-                            <a href="/Admin/NewsLetterSubscribers" class="nav-link">
-                                <i class="las la-user-friends la-2x"></i>
-                                <p>اعضای خبرنامه</p>
-                            </a>
-                        </li>
-                        <li class="nav-item ">
-                            <a href="/Admin/UsefullLinks" class="nav-link">
-                                <i class="las la-link la-2x"></i>
-                                <p>لینکهای مفید</p>
-                            </a>
-                        </li>
-                        @*<li class="nav-item has-treeview">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="lalse">
+
+
+                        <li class="nav-item">
                             <a href="#" class="nav-link">
-                            <i class="nav-icon icofont-ui-copy"></i>
-                            <p>
-                            Layout Options
-                            <i class=" right"></i>
-                            <span class="badge badge-info right">6</span>
-                            </p>
+                                <i class="nav-icon las la-tachometer-alt"></i>
+                                <p>
+                                    Widgets
+                                    <span class="right badge badge-danger">New</span>
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon las la-copy"></i>
+                                <p>
+                                    Layout Options
+                                    <i class="las la-angle-left right"></i>
+                                    <span class="badge badge-info right">6</span>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview" style="display: none;">
+                                <li class="nav-item">
+                                    <a href="pages/layout/top-nav.html" class="nav-link">
+                                        <i class="lar la-circle nav-icon"></i>
+                                        <p>Top Navigation</p>
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a href="pages/layout/boxed.html" class="nav-link">
+                                        <i class="lar la-circle nav-icon"></i>
+                                        <p>Boxed</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="pages/layout/fixed-sidebar.html" class="nav-link">
+                                        <i class="lar la-circle nav-icon"></i>
+                                        <p>Fixed Sidebar</p>
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a href="pages/layout/fixed-topnav.html" class="nav-link">
+                                        <i class="lar la-circle nav-icon"></i>
+                                        <p>Fixed Navbar</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="pages/layout/fixed-footer.html" class="nav-link">
+                                        <i class="lar la-circle nav-icon"></i>
+                                        <p>Fixed Footer</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="pages/layout/collapsed-sidebar.html" class="nav-link">
+                                        <i class="lar la-circle nav-icon"></i>
+                                        <p>Collapsed Sidebar</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-header">MULTI LEVEL EXAMPLE</li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon las la-circle"></i>
+                                <p>
+                                    Level 1
+                                    <i class="right las la-angle-left"></i>
+                                </p>
                             </a>
                             <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                            <a href="pages/layout/top-nav.html" class="nav-link">
-                            <i class="icofont-life-buoy nav-icon"></i>
-                            <p>Top Navigation</p>
-                            </a>
-                            </li>
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <i class="lar la-circle nav-icon"></i>
+                                        <p>Level 2</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <i class="lar la-circle nav-icon"></i>
+                                        <p>
+                                            Level 2
+                                            <i class="right las la-angle-left"></i>
+                                        </p>
+                                    </a>
+                                    <ul class="nav nav-treeview">
+                                        <li class="nav-item">
+                                            <a href="#" class="nav-link">
+                                                <i class="lar la-dot-circle nav-icon"></i>
+                                                <p>Level 3</p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="#" class="nav-link">
+                                                <i class="lar la-dot-circle nav-icon"></i>
+                                                <p>Level 3</p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="#" class="nav-link">
+                                                <i class="lar la-dot-circle nav-icon"></i>
+                                                <p>Level 3</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
                             </ul>
-                            </li>*@
-
+                        </li>
 
                     </ul>
                 </nav>

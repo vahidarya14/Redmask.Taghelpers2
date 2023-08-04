@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
     <Authors>Redmask.ir</Authors>
     <Company>Redmask.ir</Company>
@@ -10,28 +10,29 @@
     <Version>1.0.1</Version>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageIcon>favicon.png</PackageIcon>
+    <PackageIcon></PackageIcon>
     <PackageIconUrl />
     <PackageTags>mvc_net5,taghelpers,tinymce5,persianCalendarPicker,front-end</PackageTags>
     <RepositoryUrl>https://github.com/vahidarya14/Redmask.Taghelpers</RepositoryUrl>
     <Description>some usefull taghelpers such as
  tinymc5 + roxyfilenam , persian calendar picker , image chooser dialog(instead of file input) , social share btn</Description>
+    <!--<GenerateEmbeddedFilesManifest>true</GenerateEmbeddedFilesManifest>
+    <EnableDefaultContentItems>false</EnableDefaultContentItems>-->
   </PropertyGroup>
 
   <ItemGroup>
     <FrameworkReference Include="Microsoft.AspNetCore.App" />
   </ItemGroup>
 
-  <ItemGroup>
-    <None Include="wwwroot\favicon.png">
-      <Pack>True</Pack>
-      <PackagePath></PackagePath>
-    </None>
-  </ItemGroup>
+ 
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="9.0.1" />
   </ItemGroup>
 
+ 
 
+  <!--<ItemGroup>
+    <Content Include="wwwroot\**\*.*" CopyToPublishDirectory="Always" />
+  </ItemGroup>-->
 </Project>
