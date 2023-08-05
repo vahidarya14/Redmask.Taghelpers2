@@ -13,7 +13,7 @@
     <PackageIcon>favicon.png</PackageIcon>
     <PackageIconUrl />
     <PackageTags>mvc_net5,taghelpers,tinymce5,persianCalendarPicker,front-end</PackageTags>
-    <RepositoryUrl>https://github.com/vahidarya14/Redmask.Taghelpers</RepositoryUrl>
+    <RepositoryUrl>https://github.com/vahidarya14/Redmask.Taghelpers2</RepositoryUrl>
     <Description>some usefull taghelpers such as
  tinymc5 + roxyfilenam , persian calendar picker , image chooser dialog(instead of file input) , social share btn</Description>
     <GenerateEmbeddedFilesManifest>true</GenerateEmbeddedFilesManifest>
