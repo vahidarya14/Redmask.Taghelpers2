@@ -1,13 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30524.135
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33829.357
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Web.Test", "Web.Test\Web.Test.csproj", "{986237B4-F189-4434-BDC2-68687852837B}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Redmask.Taghelpers", "src\Redmask.Taghelpers\Redmask.Taghelpers.csproj", "{75CDCD54-FEA1-4119-9860-DAC6EBF67F60}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{86A8BFC1-94C0-4C9B-BD48-D85C2D0E0AE4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "res", "res", "{511F173C-C3D8-49FB-87B5-BC7D30A6DEC6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

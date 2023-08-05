@@ -26,11 +26,13 @@ Done
 ```
   <imageChooserFor asp-for="Icon" folder-path="@Setting.ContentsFolder" max-kb="1500" img-css="max-height:200px;border:2px solid blue;" ></imageChooserFor>
 ```
+![](res/imageChooserFor.jpg)
 
 #### TagInput:
 ```
    <TagInputFor asp-for="Tags"></TagInputFor>
 ```
+![](res/TagInputFor.jpg)
 
 #### PersianDatePicker:
 ```
