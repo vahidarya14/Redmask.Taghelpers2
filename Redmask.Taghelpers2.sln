@@ -10,6 +10,18 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{86A8BFC1-94C0-4C9B-BD48-D85C2D0E0AE4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "res", "res", "{511F173C-C3D8-49FB-87B5-BC7D30A6DEC6}"
+	ProjectSection(SolutionItems) = preProject
+		res\imageChooserFor.jpg = res\imageChooserFor.jpg
+		res\PersianDatePickerFor.jpg = res\PersianDatePickerFor.jpg
+		res\SwitchFor.jpg = res\SwitchFor.jpg
+		res\TagInputFor.jpg = res\TagInputFor.jpg
+		res\TinyMce5For.jpg = res\TinyMce5For.jpg
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7A015EE2-06A7-4C07-B0C4-95D50D2B0001}"
+	ProjectSection(SolutionItems) = preProject
+		ReadMe.md = ReadMe.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
