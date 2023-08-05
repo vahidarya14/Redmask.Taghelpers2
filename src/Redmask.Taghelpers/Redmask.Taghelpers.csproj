@@ -7,7 +7,7 @@
     <Company>Redmask.ir</Company>
     <Product>Redmask.Taghelpers</Product>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>1.0.1</Version>
+    <Version>1.0.2</Version>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageIcon>favicon.png</PackageIcon>
@@ -16,8 +16,8 @@
     <RepositoryUrl>https://github.com/vahidarya14/Redmask.Taghelpers</RepositoryUrl>
     <Description>some usefull taghelpers such as
  tinymc5 + roxyfilenam , persian calendar picker , image chooser dialog(instead of file input) , social share btn</Description>
-    <!--<GenerateEmbeddedFilesManifest>true</GenerateEmbeddedFilesManifest>
-    <EnableDefaultContentItems>false</EnableDefaultContentItems>-->
+    <GenerateEmbeddedFilesManifest>true</GenerateEmbeddedFilesManifest>
+    <EnableDefaultContentItems>false</EnableDefaultContentItems>
   </PropertyGroup>
 
   <ItemGroup>
@@ -27,17 +27,7 @@
  
 
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="9.0.1" />
-  </ItemGroup>
-
- 
-
-  <ItemGroup>
-    <Content Update="wwwroot\favicon.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </Content>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
 
  
@@ -51,7 +41,15 @@
 
  
 
-  <!--<ItemGroup>
+  <ItemGroup>
     <Content Include="wwwroot\**\*.*" CopyToPublishDirectory="Always" />
-  </ItemGroup>-->
+  </ItemGroup>
+
+ 
+
+  <ItemGroup>
+    <Content Update="wwwroot\fileman\conf.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
 </Project>

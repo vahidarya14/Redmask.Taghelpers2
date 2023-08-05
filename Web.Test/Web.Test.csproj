@@ -11,12 +11,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\_content\Redmask.Taghelpers\" />
-    <Folder Include="wwwroot\_files\Temp\" />
-    <Folder Include="wwwroot\_files\uploadimages\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\src\Redmask.Taghelpers\Redmask.Taghelpers.csproj" />
   </ItemGroup>
 

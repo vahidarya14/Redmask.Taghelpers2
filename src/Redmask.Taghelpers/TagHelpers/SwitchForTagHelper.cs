@@ -13,7 +13,7 @@ namespace Redmask.Taghelpers.TagHelpers
 
         public override Task ProcessAsync(TagHelperContext context, TagHelperOutput output)
         {
-            var b = bool.Parse(Model.Model.ToString() ?? "false");
+            var b = bool.Parse(Model.Model?.ToString() ?? "false");
             output.Content.SetHtmlContent($@"       
 <div class='custom-control custom-switch'>
     <input type='checkbox' class='custom-control-input' value='true' {(b?"checked":"")} name='{Model.Name}' id='{Model.Name}'>

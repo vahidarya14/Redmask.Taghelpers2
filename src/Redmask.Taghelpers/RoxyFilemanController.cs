@@ -38,8 +38,8 @@ namespace Redmask.Taghelpers
         private string _tempPath;
         private string _filesRootPath;
         private string _filesRootVirtual;
-        private Dictionary<string, string> _settings;
-        private Dictionary<string, string> _lang = null;
+        private Dictionary<string, string> _settings=new();
+        private Dictionary<string, string> _lang = new();
 
         public RoxyFilemanController(IWebHostEnvironment env)
         {
@@ -54,10 +54,10 @@ namespace Redmask.Taghelpers
 
         private void LoadSettings()
         {
-            _settings = JsonConvert.DeserializeObject<Dictionary<string, string>>(System.IO.File.ReadAllText(_systemRootPath + "/wwwroot/_content/Redmask.Taghelpers/fileman/conf.json"));
-            string langFile = _systemRootPath + "/wwwroot/_content/Redmask.Taghelpers/fileman/lang/" + GetSetting("LANG") + ".json";
-            if (!System.IO.File.Exists(langFile)) langFile = _systemRootPath + "/wwwroot/_content/Redmask.Taghelpers/fileman/lang/en.json";
-            _lang = JsonConvert.DeserializeObject<Dictionary<string, string>>(System.IO.File.ReadAllText(langFile));
+            //_settings = JsonConvert.DeserializeObject<Dictionary<string, string>>(System.IO.File.ReadAllText(_systemRootPath + "/wwwroot/_content/Redmask.Taghelpers2/fileman/conf.json"));
+            //string langFile = _systemRootPath + "/wwwroot/_content/Redmask.Taghelpers2/fileman/lang/" + GetSetting("LANG") + ".json";
+            //if (!System.IO.File.Exists(langFile)) langFile = _systemRootPath + "/wwwroot/_content/Redmask.Taghelpers2/fileman/lang/en.json";
+            //_lang = JsonConvert.DeserializeObject<Dictionary<string, string>>(System.IO.File.ReadAllText(langFile));
         }
 
         // GET api/RoxyFileman - test entry point//]
@@ -70,7 +70,11 @@ namespace Redmask.Taghelpers
             try
             {
                 DirectoryInfo d = new DirectoryInfo(GetFilesRoot());
-                if (!d.Exists) throw new Exception("Invalid files root directory. Check your configuration.");
+                if (!d.Exists)
+                {
+                    Directory.CreateDirectory(d.FullName);
+                 //   throw new Exception("Invalid files root directory. Check your configuration.");
+                }
                 ArrayList dirs = ListDirs(d.FullName);
                 dirs.Insert(0, d.FullName);
                 string localPath = _systemRootPath;
@@ -545,7 +549,7 @@ namespace Redmask.Taghelpers
 
         private bool CanHandleFile(string filename)
         {
-            bool ret = false;
+            bool ret = true;
             FileInfo file = new FileInfo(filename);
             string ext = file.Extension.Replace(".", "").ToLower();
             string setting = GetSetting("FORBIDDEN_UPLOADS").Trim().ToLower();

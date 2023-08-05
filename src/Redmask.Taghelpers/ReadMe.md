@@ -1,22 +1,22 @@
-# JsonMapper 
+# Redmask.Taghelpers 
 
 ## Description
-
-Map json object to another json dynamiclly using config  
+Some useful UI taghelpers  
+source code and sample : https://github.com/vahidarya14/Redmask.Taghelpers2
 
 #### sample usage source:
 
 add this in head of site
 ```
     @Html.RedmaskCss(new CssPool().Bootstrap4().PersianDateTimePicker().Kendo2020().AdminLTE().TagInput().PersianCss())
-
+   <script src="~/_content/Redmask.Taghelpers/lib/jquery/jquery.min.js"></script>
 ```
 and this in footer (or header)
 ```
     @Html.RedmaskJs(new ScriptsPool().Bootstrap4().PersianDateTimePicker().Kendo2020().AdminLTE().TinyMCE5().TagInput())
 
 ```
- add @addTagHelper *,Redmask.Taghelpers to _ViewImport.cshtml
+ add ``` @addTagHelper *,Redmask.Taghelpers ``` to _ViewImport.cshtml
 
 Done
 
@@ -24,7 +24,7 @@ Done
 
 #### imageChooser:
 ```
-  <imageChooser asp-for="Icon" folder-path="@Setting.ContentsFolder" max-kb="1500" img-css="max-height:200px;border:2px solid blue;" ></imageChooser>
+  <imageChooserFor asp-for="Icon" folder-path="@Setting.ContentsFolder" max-kb="1500" img-css="max-height:200px;border:2px solid blue;" ></imageChooserFor>
 ```
 
 #### TagInput:
@@ -39,6 +39,18 @@ Done
 
 #### TinyMce5
 ```
-  <TinyMce5For asp-for="Description" language="fa_IR" directionality="rtl">fddfdfda fasdf </TinyMce5For>
+  <TinyMce5For asp-for="Description" language="fa_IR" directionality="rtl">some content</TinyMce5For>
 
+```
+#### Switch
+```
+<SwitchFor asp-for="IsActive" label="Is Active"></SwitchFor>
+```
+
+
+#### none binding tagheplers
+```
+<imageChooser name="aa"  ></imageChooser>
+<PersianDatePicker id="picker1" ></PersianDatePicker>
+<ShareBtn ></ShareBtn>
 ```
