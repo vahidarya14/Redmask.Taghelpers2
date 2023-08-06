@@ -1,4 +1,4 @@
-# Redmask.Taghelpers 
+﻿# Redmask.Taghelpers 
 
 ## Description
 Some useful UI taghelpers  
@@ -16,45 +16,86 @@ and this in footer (or header)
     @Html.RedmaskJs(new ScriptsPool().Bootstrap4().PersianDateTimePicker().Kendo2020().AdminLTE().TinyMCE5().TagInput())
 
 ```
- add ```csharp @addTagHelper *,Redmask.Taghelpers ``` to _ViewImport.cshtml
+ add ``` @addTagHelper *,Redmask.Taghelpers ``` to **_ViewImport.cshtml**
 
 Done
 
 # usage
 
 #### imageChooser:
-```csharp
+```html
   <imageChooserFor asp-for="Icon" folder-path="@Setting.ContentsFolder" max-kb="1500" img-css="max-height:200px;border:2px solid blue;" ></imageChooserFor>
 ```
 ![](res/imageChooserFor.jpg)
 
 #### TagInput:
-```csharp
+```html
    <TagInputFor asp-for="Tags"></TagInputFor>
 ```
 ![](res/TagInputFor.jpg)
 
 #### PersianDatePicker:
-```csharp
+```html
     <PersianDatePickerFor asp-for="CreateDate"></PersianDatePickerFor>
 ```
 ![](res/PersianDatePickerFor.jpg)
 
 #### TinyMce5
-```csharp
+```html
   <TinyMce5For asp-for="Description" language="fa_IR" directionality="rtl">some content</TinyMce5For>
 
 ```
 ![](res/TinyMce5For.jpg)
 
 #### Switch
-```csharp
+```html
 <SwitchFor asp-for="IsActive" label="Is Active"></SwitchFor>
 ```
 ![](res/SwitchFor.jpg)
 
 #### none binding tagheplers
-```csharp
+```html
+<filterPanel>
+    <dropDownFilterItem title="name" id="nameFilter">    </dropDownFilterItem>
+    <customeBobyFilter id="familyFilter" title="family">
+        <ol class="list-group list-group-numbered px-0">
+            <li class="list-group-item d-flex justify-content-between align-items-start">
+                <div class="form-check">
+                    <input class="filterInput familyFilter" type="checkbox" data-lbl="chk_1" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                        Default checkbox
+                    </label>
+                </div>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-start">
+                <div class="form-check">
+                    <input class="filterInput familyFilter" type="checkbox" data-lbl="chk__2" id="flexCheckChecked">
+                    <label class="form-check-label" for="flexCheckChecked">
+                        Checked checkbox
+                    </label>
+                </div>
+            </li>
+        </ol>
+    </customeBobyFilter>
+    <filterItem>
+        <filterBadge>
+            تاریخ:
+            <span class="badge badge-warning" id="dateFromFilter2-has"></span>
+            <span class="badge badge-warning" id="dateToFilter2-has"></span>
+            <i class="las la-angle-down"></i>
+        </filterBadge>
+        <filterBody>
+            <div class="p-2 pt-4">
+                <persianDatePicker class="filterInput" id="dateFromFilter"></persianDatePicker>
+                <persianDatePicker class="filterInput" id="dateToFilter"></persianDatePicker>
+            </div>
+        </filterBody>
+    </filterItem>
+</filterPanel>
+```
+![](res/filterPanel.jpg)
+
+```html
 <imageChooser name="aa"  ></imageChooser>
 <PersianDatePicker id="picker1" ></PersianDatePicker>
 <ShareBtn ></ShareBtn>
