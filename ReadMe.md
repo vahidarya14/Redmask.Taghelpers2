@@ -20,6 +20,9 @@ and this in footer (or header)
 
 Done
 
+>[!NOTE]
+>_you can ignore **PersianDateTimePicker** or **Kendo2020** or **AdminLTE** or **TagInput** or **PersianCss** if you aren't using these component.and just add needed css and js_
+> 
 # usage
 
 #### imageChooser:
