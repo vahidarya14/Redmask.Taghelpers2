@@ -18,7 +18,7 @@
  tinymc5 + roxyfilenam , persian calendar picker , image chooser dialog(instead of file input) , social share btn</Description>
     <GenerateEmbeddedFilesManifest>true</GenerateEmbeddedFilesManifest>
     <EnableDefaultContentItems>false</EnableDefaultContentItems>
-    <PackageReadmeFile>ReadMe.md</PackageReadmeFile>
+
   </PropertyGroup>
 
   <ItemGroup>
@@ -53,8 +53,21 @@
  
 
   <ItemGroup>
+    <None Remove="wwwroot\lib\MD.BootstrapPersianDateTimePicker.bs5\mds.bs.datetimepicker.js" />
+    <None Remove="wwwroot\lib\MD.BootstrapPersianDateTimePicker.bs5\mds.bs.datetimepicker.style.css" />
+  </ItemGroup>
+
+ 
+
+  <ItemGroup>
     <Content Update="wwwroot\fileman\conf.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+
+ 
+
+  <ItemGroup>
+    <Folder Include="wwwroot\lib\bootstrap5\" />
   </ItemGroup>
 </Project>

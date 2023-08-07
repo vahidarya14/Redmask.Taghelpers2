@@ -62,3 +62,6 @@
     border-radius: 0;
 }
 
+div.btn-group:has(> .dropdown-menu2.show) {
+    background: #52afed;
+}
