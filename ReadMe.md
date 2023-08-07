@@ -2,6 +2,8 @@
 
 ## Description
 Some useful UI taghelpers  
+ tinymc5 + roxyfilenam , persian calendar picker , image chooser dialog(instead of file input) , social share btn
+
 source code and sample : https://github.com/vahidarya14/Redmask.Taghelpers2
 
 #### sample usage source:
