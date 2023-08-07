@@ -8,12 +8,12 @@ source code and sample : https://github.com/vahidarya14/Redmask.Taghelpers2
 
 add this in head of site
 ```csharp
-    @Html.RedmaskCss(new CssPool().Bootstrap4().PersianDateTimePicker().Kendo2020().AdminLTE().TagInput().PersianCss())
+     @Html.RedmaskCss(new CssPool().Bootstrap5().PersianDateTimePickerBs5().Kendo2020().AdminLTE().TagInput().PersianCss())
    <script src="~/_content/Redmask.Taghelpers/lib/jquery/jquery.min.js"></script>
 ```
 and this in footer (or header)
 ```csharp
-    @Html.RedmaskJs(new ScriptsPool().Bootstrap4().PersianDateTimePicker().Kendo2020().AdminLTE().TinyMCE5().TagInput())
+    @Html.RedmaskJs(new ScriptsPool().Bootstrap5().PersianDateTimePickerBs5().Kendo2020().AdminLTE().TinyMCE5().TagInput())
 
 ```
  add ``` @addTagHelper *,Redmask.Taghelpers ``` to **_ViewImport.cshtml**
@@ -39,7 +39,7 @@ Done
 
 #### PersianDatePicker:
 ```html
-    <PersianDatePickerFor asp-for="CreateDate"></PersianDatePickerFor>
+    <PersianDatePickerBs5For asp-for="CreateDate"></PersianDatePickerBs5For>
 ```
 ![](res/PersianDatePickerFor.jpg)
 
@@ -89,8 +89,8 @@ Done
         </filterBadge>
         <filterBody>
             <div class="p-2 pt-4">
-                <persianDatePicker class="filterInput" id="dateFromFilter"></persianDatePicker>
-                <persianDatePicker class="filterInput" id="dateToFilter"></persianDatePicker>
+                <PersianDatePickerBs5 class="filterInput" id="dateFromFilter"></PersianDatePickerBs5>
+                <PersianDatePickerBs5 class="filterInput" id="dateToFilter"></PersianDatePickerBs5>
             </div>
         </filterBody>
     </filterItem>
@@ -100,6 +100,6 @@ Done
 
 ```html
 <imageChooser name="aa"  ></imageChooser>
-<PersianDatePicker id="picker1" ></PersianDatePicker>
+<PersianDatePickerBs5 id="picker1" ></PersianDatePickerBs5>
 <ShareBtn ></ShareBtn>
 ```
