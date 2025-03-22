@@ -8,7 +8,7 @@
 
 
 
-    @Html.RedmaskCss(new CssPool().Bootstrap5().PersianDateTimePickerBs5().Kendo2020().AdminLTE().TagInput().PersianCss())
+    @Html.RedmaskCss(new CssPool(Bootstrap.v5).PersianDateTimePicker().Kendo2020().AdminLTE3().TagInput().PersianCss())
     @{
         var themeColor = "#0ea960";
     }
@@ -343,7 +343,7 @@
         <script src="/_content/Redmask.Taghelpers/lib/AdminLTE-3.0.2/js/adminlte.js"></script>
         <script src="/_content/Redmask.Taghelpers/lib/kendo2020/kendo.all.min.js"></script>
         <script src="/_content/Redmask.Taghelpers/lib/tinymce5/tinymce.min.js"></script>*@
-    @Html.RedmaskJs(new ScriptsPool().Bootstrap5().PersianDateTimePickerBs5().Kendo2020().AdminLTE().TinyMCE5().TagInput())
+    @Html.RedmaskJs(new ScriptsPool(Bootstrap.v5).PersianDateTimePicker().Kendo2020().AdminLTE3().TinyMCE5().TagInput())
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

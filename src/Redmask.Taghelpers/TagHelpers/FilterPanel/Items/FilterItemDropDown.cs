@@ -2,7 +2,7 @@
 
 namespace Redmask.Taghelpers.TagHelpers
 {
-    [HtmlTargetElement("dropDownFilterItem")]
+    [HtmlTargetElement("DropDownFilterItem")]
     public class FilterItemDropDownTaghelper : TagHelper
     {
         [HtmlAttributeName("id")] public string id { get; set; }
@@ -35,6 +35,7 @@ namespace Redmask.Taghelpers.TagHelpers
 
             output.TagName = "div";
             output.Attributes.SetAttribute("class", "btn-group");
+            output.TagMode = TagMode.StartTagAndEndTag;
             output.Content.AppendHtml(html);
         }
     }

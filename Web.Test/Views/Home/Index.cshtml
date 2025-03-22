@@ -48,9 +48,9 @@
         color: #0ea960;
     }
 </style>
-<filterPanel>
-    <dropDownFilterItem title="name" id="nameFilter">    </dropDownFilterItem>
-    <customeBobyFilter id="familyFilter" title="family">
+<FilterPanel>
+    <DropDownFilterItem title="name" id="nameFilter" />
+    <CustomeBobyFilter id="familyFilter" title="family">
         <ol class="list-group list-group-numbered px-0">
             <li class="list-group-item d-flex justify-content-between align-items-start">
                 <div class="form-check">
@@ -69,22 +69,22 @@
                 </div>
             </li>
         </ol>
-    </customeBobyFilter>
-    <filterItem>
-        <filterBadge>
+    </CustomeBobyFilter>
+    <FilterItem>
+        <FilterBadge>
             تاریخ:
             <span class="badge badge-warning" id="dateFromFilter2-has"></span>
             <span class="badge badge-warning" id="dateToFilter2-has"></span>
             <i class="las la-angle-down"></i>
-        </filterBadge>
-        <filterBody>
+        </FilterBadge>
+        <FilterBody>
             <div class="p-2 pt-4">
-                <PersianDatePickerBs5 class="filterInput" id="dateFromFilter"></PersianDatePickerBs5>
-                <PersianDatePickerBs5 class="filterInput" id="dateToFilter"></PersianDatePickerBs5>
+                <PersianDatePickerBs5 class="filterInput" id="dateFromFilter"/>
+                <PersianDatePickerBs5 class="filterInput" id="dateToFilter" />
             </div>
-        </filterBody>
-    </filterItem>
-</filterPanel>
+        </FilterBody>
+    </FilterItem>
+</FilterPanel>
 <div class="card" style="margin-top:50px;">
     <div class="card-body">
 
@@ -93,7 +93,8 @@
             <div class="row">
                 <div class="col-md-12">
 
-                    <ShareBtn use-current-url="true" class="float-left btn-success"></ShareBtn>
+                    <ShareBtnBs4 use-current-url="true" class="float-left btn-success" />
+                    <ShareBtnBs5 use-current-url="true" class="float-left btn-danger" />
                     <FloatingLabelInputGroup label="First and last name">
                         <input class="form-control" asp-for="Name" type="text" />
                         <input class="form-control" asp-for="Family" type="text">
@@ -105,7 +106,7 @@
                     </FloatingLabelInputGroup>
 
                     <FloatingLabelInput label="آواتار">
-                        <imageChooserfor asp-for="Img"></imageChooserfor>
+                        <imageChooserfor asp-for="Img"/>
                     </FloatingLabelInput>
 
                     <FloatingLabelInputGroup label="نام">
@@ -125,26 +126,26 @@
                     </FloatingLabelInput>
 
                     <FloatingLabelInput asp-for="Tags" label="tags">
-                        <TagInputFor asp-for="Tags"></TagInputFor>
+                        <TagInputFor asp-for="Tags" seperator=","/>
                     </FloatingLabelInput>
 
                     <Bs4FormGroup label="">
-                        <SwitchFor asp-for="IsActive" label="Is Active"></SwitchFor>
+                        <SwitchFor asp-for="IsActive" label="Is Active" />
                     </Bs4FormGroup>
 
 
 
                     <FloatingLabelInput label="تاریخ ایحاد">
-                        <PersianDatePickerBs5For asp-for="CreateDate"></PersianDatePickerBs5For>
+                        <PersianDatePickerBs5For asp-for="CreateDate" />
                     </FloatingLabelInput>
 
                     <FloatingLabelInput label="توضیحات">
 
-                        <TinyMce5For asp-for="Description" language="fa_IR" directionality="rtl">fddfdfda fasdf </TinyMce5For>
+                        <TinyMce5For asp-for="Description" language="fa_IR" directionality="rtl"/>
                     </FloatingLabelInput>
 
 
-                    <div class="form-group " style="margin-top:500px">
+                    <div class="form-group " style="margin-top:5px">
                         <input type="submit" value="Save" class="btn btn-primary" />
                     </div>
                 </div>

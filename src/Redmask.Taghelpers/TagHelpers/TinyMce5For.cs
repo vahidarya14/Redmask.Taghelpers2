@@ -3,30 +3,30 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 
-namespace Redmask.Taghelpers.TagHelpers
+namespace Redmask.Taghelpers.TagHelpers;
+
+[HtmlTargetElement("TinyMce5For", Attributes = "asp-for", TagStructure = TagStructure.NormalOrSelfClosing)]
+public class TinyMce5ForTagHelper : TagHelper
 {
-    [HtmlTargetElement("TinyMce5For", Attributes = "asp-for", TagStructure = TagStructure.NormalOrSelfClosing)]
-    public class TinyMce5ForTagHelper : TagHelper
+    [HtmlAttributeName("asp-for")]
+    public ModelExpression AspFor { get; set; }
+
+    public string Language { get; set; }// = "fa_IR";
+    public string Directionality { get; set; } //= "rtl";
+
+
+    public async override Task ProcessAsync(TagHelperContext context, TagHelperOutput output)
     {
-        [HtmlAttributeName("asp-for")]
-        public ModelExpression AspFor { get; set; }
-
-        public string Language { get; set; }// = "fa_IR";
-        public string Directionality { get; set; } //= "rtl";
-
-
-        public async override Task ProcessAsync(TagHelperContext context, TagHelperOutput output)
+        await Task.Run(() =>
         {
-            await Task.Run(() =>
-            {
-                var Id = AspFor.Name;
-                var c = AspFor.Model;
-                string encodedChildContent = WebUtility.HtmlEncode(c?.ToString() ?? string.Empty);
+            var Id = AspFor.Name;
+            var c = AspFor.Model;
+            string encodedChildContent = WebUtility.HtmlEncode(c?.ToString() ?? string.Empty);
 
 
-                //{ScriptHelper.AddJquery()}
-                //{ScriptHelper.AddScript("/lib/tinymce5/tinymce.min.js")}
-                var aa = $@"<textarea name='{Id}' id='{Id}' class='form-control' >{encodedChildContent}</textarea>
+            //{ScriptHelper.AddJquery()}
+            //{ScriptHelper.AddScript("/lib/tinymce5/tinymce.min.js")}
+            var aa = $@"<textarea name='{Id}' id='{Id}' class='form-control' >{encodedChildContent}</textarea>
 <script>
     $().ready(function () {{
 
@@ -121,10 +121,9 @@ namespace Redmask.Taghelpers.TagHelpers
 
     }});
     </script>";
-                output.Content.SetHtmlContent(aa);
+            output.Content.SetHtmlContent(aa);
+            output.TagMode = TagMode.StartTagAndEndTag;
+        });
 
-            });
-
-        }
     }
 }

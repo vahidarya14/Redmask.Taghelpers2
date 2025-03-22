@@ -11,7 +11,7 @@ namespace Redmask.Taghelpers.TagHelpers
 
         public string Label { get; set; }
 
-        public override Task ProcessAsync(TagHelperContext context, TagHelperOutput output)
+        public override async Task ProcessAsync(TagHelperContext context, TagHelperOutput output)
         {
             var b = bool.Parse(Model.Model?.ToString() ?? "false");
             output.Content.SetHtmlContent($@"       
@@ -19,7 +19,8 @@ namespace Redmask.Taghelpers.TagHelpers
     <input type='checkbox' class='custom-control-input' value='true' {(b?"checked":"")} name='{Model.Name}' id='{Model.Name}'>
     <label class='custom-control-label' for='{Model.Name}'> {Label}</label>
 </div>");
-            return base.ProcessAsync(context, output);
+            output.TagMode = TagMode.StartTagAndEndTag;
+
         }
     }
 }

@@ -3,25 +3,25 @@ using System.Net;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 
-namespace Redmask.Taghelpers.TagHelpers
+namespace Redmask.Taghelpers.TagHelpers;
+
+[HtmlTargetElement("TinyMce5", Attributes="id", TagStructure = TagStructure.NormalOrSelfClosing)]
+public class TinyMce5TagHelper : TagHelper
 {
-    [HtmlTargetElement("TinyMce5", Attributes="id", TagStructure = TagStructure.NormalOrSelfClosing)]
-    public class TinyMce5TagHelper : TagHelper
+    public string Id { get; set; }
+    public string Language { get; set; }// = "fa_IR";
+
+    public async override Task ProcessAsync(TagHelperContext context, TagHelperOutput output)
     {
-        public string Id { get; set; }
-        public string Language { get; set; }// = "fa_IR";
 
-        public async override Task ProcessAsync(TagHelperContext context, TagHelperOutput output)
-        {
+        //var random = new Random().Next(1000000);
 
-            //var random = new Random().Next(1000000);
+        var c = (await output.GetChildContentAsync()).GetContent();
+        string encodedChildContent = WebUtility.HtmlEncode(c?.ToString() ?? string.Empty);
 
-            var c = (await output.GetChildContentAsync()).GetContent();
-            string encodedChildContent = WebUtility.HtmlEncode(c?.ToString() ?? string.Empty);
-
-            //{ScriptHelper.AddJquery()}
-            //{ScriptHelper.AddScript("/lib/tinymce5/tinymce.min.js")}
-            var aa = $@"<textarea name='{Id}' id='{Id}' class='form-control' >{encodedChildContent}</textarea>
+        //{ScriptHelper.AddJquery()}
+        //{ScriptHelper.AddScript("/lib/tinymce5/tinymce.min.js")}
+        var aa = $@"<textarea name='{Id}' id='{Id}' class='form-control' >{encodedChildContent}</textarea>
 <script>
     $().ready(function () {{
 
@@ -116,7 +116,7 @@ namespace Redmask.Taghelpers.TagHelpers
 
     }});
     </script>";
-            output.Content.SetHtmlContent(aa);
-        }
+        output.Content.SetHtmlContent(aa);
+        output.TagMode = TagMode.StartTagAndEndTag;
     }
 }

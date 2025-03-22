@@ -8,7 +8,7 @@ namespace Web.Test.Controllers
         public  IActionResult Index()
         {
 
-            return View(new Product(){IsActive = true,Tags="1111,2222,3333"});
+            return View(new Product(){IsActive = true,CreateDate=DateTime.UtcNow.AddDays(0), Tags="1111,2222,3333"});
         }
 
         [HttpPost]

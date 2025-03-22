@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace Redmask.Taghelpers.TagHelpers
 {
-    [HtmlTargetElement("customeBobyFilter")]
+    [HtmlTargetElement("CustomeBobyFilter")]
     public class FilterItemCustomeBobyTaghelper : TagHelper
     {
         [HtmlAttributeName("id")] public string Id { get; set; }

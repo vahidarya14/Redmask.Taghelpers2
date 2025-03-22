@@ -2,30 +2,30 @@
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 
-namespace Redmask.Taghelpers.TagHelpers
+namespace Redmask.Taghelpers.TagHelpers;
+
+[HtmlTargetElement("imageChooserFor", Attributes = "asp-for", TagStructure = TagStructure.NormalOrSelfClosing)]
+public class ImageChooserForTagHelper : TagHelper
 {
-    [HtmlTargetElement("imageChooserFor", Attributes = "asp-for", TagStructure = TagStructure.NormalOrSelfClosing)]
-    public class ImageChooserForTagHelper : TagHelper
+    [HtmlAttributeName("asp-for")] public ModelExpression Model { get; set; }
+
+    public string FolderPath { get; set; }
+    public int MaxKb { get; set; } = 8000;
+    public double MinRatioHeightToWidth { get; set; } = .001;
+    public double MaxRatioHeightToWidth { get; set; } = 100;
+    public string DefaultAvatar { get; set; } = "/_content/Redmask.Taghelpers/noIimage268.png";
+    public string ImgCss { get; set; }
+    public string ImgClass { get; set; }
+
+    public override void Process(TagHelperContext context, TagHelperOutput output)
     {
-        [HtmlAttributeName("asp-for")] public ModelExpression Model { get; set; }
+        var src = Model.Model != null ? FolderPath + Model.Model : DefaultAvatar;
+        var imgId = Model.Name + Guid.NewGuid().ToString().Split('-')[0];
+        var fileId = Model.Name + "file";
+        var maxAllowedKillobyte = (MaxKb + 6) * 1000;
 
-        public string FolderPath { get; set; }
-        public int MaxKb { get; set; } = 8000;
-        public double MinRatioHeightToWidth { get; set; } = .001;
-        public double MaxRatioHeightToWidth { get; set; } = 100;
-        public string DefaultAvatar { get; set; } = "/_content/Redmask.Taghelpers/noIimage268.png";
-        public string ImgCss { get; set; }
-        public string ImgClass { get; set; }
-
-        public override void Process(TagHelperContext context, TagHelperOutput output)
-        {
-            var src = Model.Model != null ? FolderPath + Model.Model : DefaultAvatar;
-            var imgId = Model.Name + Guid.NewGuid().ToString().Split('-')[0];
-            var fileId = Model.Name + "file";
-            var maxAllowedKillobyte = (MaxKb + 6) * 1000;
-
-            output.Content.SetHtmlContent($@"
-<img src='{ src}' id='{imgId}' style='height:100%; cursor:pointer;min-height:50px;border:1px dashed red;{ImgCss}' class='{ImgClass}' />
+        output.Content.SetHtmlContent($@"
+<img src='{ src}' id='{imgId}' style='height:100%; cursor:pointer;min-height:50px;object-fit: scale-down;border:1px dashed red;{ImgCss}' class='{ImgClass}' />
 <input type='file' name='{fileId}' id='{fileId}' style='display:none' accept='image/*' />
 <button id='del_img_{fileId}' type='button' class='btn p-0' style='position: absolute;
                                                                margin-right: -30px;
@@ -73,8 +73,8 @@ namespace Redmask.Taghelpers.TagHelpers
     $('#del_img_{fileId}').click(function () {{  document.getElementById('{imgId}').src ='{DefaultAvatar}';document.getElementById('{fileId}').value = null; }});
 </script>");
 
+        output.TagMode = TagMode.StartTagAndEndTag;
 
 
-        }
     }
 }

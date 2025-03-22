@@ -10,15 +10,15 @@ source code and sample : https://github.com/vahidarya14/Redmask.Taghelpers2
 
 add this in head of site
 ```csharp
-     @Html.RedmaskCss(new CssPool().Bootstrap5().PersianDateTimePickerBs5().Kendo2020().AdminLTE().TagInput().PersianCss())
+     @Html.RedmaskCss(new CssPool(Bootstrap.v5).PersianDateTimePicker().Kendo2020().AdminLTE3().TagInput().PersianCss())
    <script src="~/_content/Redmask.Taghelpers/lib/jquery/jquery.min.js"></script>
 ```
 and this in footer (or header)
 ```csharp
-    @Html.RedmaskJs(new ScriptsPool().Bootstrap5().PersianDateTimePickerBs5().Kendo2020().AdminLTE().TinyMCE5().TagInput())
+    @Html.RedmaskJs(new ScriptsPool(Bootstrap.v5).PersianDateTimePicker().Kendo2020().AdminLTE3().TinyMCE5().TagInput())
 
 ```
- add ``` @addTagHelper *,Redmask.Taghelpers ``` to **_ViewImport.cshtml**
+ add ```csharp @addTagHelper *,Redmask.Taghelpers ``` to **_ViewImport.cshtml**
 
 Done
 
@@ -35,13 +35,18 @@ Done
 
 #### TagInput:
 ```html
-   <TagInputFor asp-for="Tags"></TagInputFor>
+   <TagInputFor asp-for="Tags" seperator=","/>
 ```
 ![](res/TagInputFor.jpg)
 
 #### PersianDatePicker:
+if you are using bootstrap 5
 ```html
-    <PersianDatePickerBs5For asp-for="CreateDate"></PersianDatePickerBs5For>
+    <PersianDatePickerBs5For asp-for="CreateDate" />
+```
+if you are using bootstrap 4
+```html
+    <PersianDatePickerBs4For asp-for="CreateDate" />
 ```
 ![](res/PersianDatePickerFor.jpg)
 
@@ -54,15 +59,22 @@ Done
 
 #### Switch
 ```html
-<SwitchFor asp-for="IsActive" label="Is Active"></SwitchFor>
+<SwitchFor asp-for="IsActive" label="Is Active" />
 ```
 ![](res/SwitchFor.jpg)
 
+#### FloatingLabelInputGroup
+```html
+<FloatingLabelInputGroup label="نام">
+    <input class="form-control" asp-for="Name" placeholder="نام" type="text" />
+</FloatingLabelInputGroup>
+```
+
 #### none binding tagheplers
 ```html
-<filterPanel>
-    <dropDownFilterItem title="name" id="nameFilter">    </dropDownFilterItem>
-    <customeBobyFilter id="familyFilter" title="family">
+<FilterPanel>
+    <DropDownFilterItem title="name" id="nameFilter" />
+    <CustomeBobyFilter id="familyFilter" title="family">
         <ol class="list-group list-group-numbered px-0">
             <li class="list-group-item d-flex justify-content-between align-items-start">
                 <div class="form-check">
@@ -81,27 +93,28 @@ Done
                 </div>
             </li>
         </ol>
-    </customeBobyFilter>
-    <filterItem>
-        <filterBadge>
+    </CustomeBobyFilter>
+    <FilterItem>
+        <FilterBadge>
             تاریخ:
             <span class="badge badge-warning" id="dateFromFilter2-has"></span>
             <span class="badge badge-warning" id="dateToFilter2-has"></span>
             <i class="las la-angle-down"></i>
-        </filterBadge>
-        <filterBody>
+        </FilterBadge>
+        <FilterBody>
             <div class="p-2 pt-4">
-                <PersianDatePickerBs5 class="filterInput" id="dateFromFilter"></PersianDatePickerBs5>
-                <PersianDatePickerBs5 class="filterInput" id="dateToFilter"></PersianDatePickerBs5>
+                <PersianDatePicker class="filterInput" id="dateFromFilter" />
+                <PersianDatePicker class="filterInput" id="dateToFilter" />
             </div>
-        </filterBody>
-    </filterItem>
-</filterPanel>
+        </FilterBody>
+    </FilterItem>
+</FilterPanel>
 ```
 ![](res/filterPanel.jpg)
 
 ```html
 <imageChooser name="aa"  ></imageChooser>
 <PersianDatePickerBs5 id="picker1" ></PersianDatePickerBs5>
-<ShareBtn ></ShareBtn>
+<ShareBtnBs5 use-current-url="true" class="float-left btn-success" />
+<ShareBtnBs4 use-current-url="true" class="float-left btn-danger" />
 ```

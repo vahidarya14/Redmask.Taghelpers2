@@ -3,8 +3,8 @@ using System.Threading.Tasks;
 
 namespace Redmask.Taghelpers.TagHelpers
 {
-    [HtmlTargetElement("filterPanel")]
-    [HtmlTargetElement("div", Attributes = "filterPanel")]
+    [HtmlTargetElement("FilterPanel")]
+    [HtmlTargetElement("div", Attributes = "FilterPanel")]
     public class FilterPanelTaghelper : TagHelper
     {
         [HtmlAttributeName("showDefaultInput")] public bool ShowDefaultInput { get; set; }

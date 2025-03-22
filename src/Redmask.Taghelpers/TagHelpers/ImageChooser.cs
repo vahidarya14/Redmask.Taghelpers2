@@ -1,30 +1,30 @@
 ﻿using System;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 
-namespace Redmask.Taghelpers.TagHelpers
+namespace Redmask.Taghelpers.TagHelpers;
+
+[HtmlTargetElement("imageChooser", Attributes = "name", TagStructure = TagStructure.NormalOrSelfClosing)]
+public class ImageChooserTagHelper : TagHelper
 {
-    [HtmlTargetElement("imageChooser", Attributes = "name", TagStructure = TagStructure.NormalOrSelfClosing)]
-    public class ImageChooserTagHelper : TagHelper
+    public string Name { get; set; }
+    public string Src { get; set; }
+    public string FolderPath { get; set; }
+    public int MaxKb { get; set; } = 8000;
+    public double MinRatioHeightToWidth { get; set; } = .001;
+    public double MaxRatioHeightToWidth { get; set; } = 100;
+    public string DefaultAvatar { get; set; } = "/_content/Redmask.Taghelpers/noIimage268.png";
+    public string ImgCss { get; set; }
+    public string ImgClass { get; set; }
+
+    public override void Process(TagHelperContext context, TagHelperOutput output)
     {
-        public string Name { get; set; }
-        public string Src { get; set; }
-        public string FolderPath { get; set; }
-        public int MaxKb { get; set; } = 8000;
-        public double MinRatioHeightToWidth { get; set; } = .001;
-        public double MaxRatioHeightToWidth { get; set; } = 100;
-        public string DefaultAvatar { get; set; } = "/_content/Redmask.Taghelpers/noIimage268.png";
-        public string ImgCss { get; set; }
-        public string ImgClass { get; set; }
+        var src = Src != null ? FolderPath + Src : DefaultAvatar;
+        var imgId = Name + Guid.NewGuid().ToString().Split('-')[0];
+        var fileId = Name + "file";
+        var maxAllowedKillobyte = (MaxKb + 6) * 1000;
 
-        public override void Process(TagHelperContext context, TagHelperOutput output)
-        {
-            var src = Src != null ? FolderPath + Src : DefaultAvatar;
-            var imgId = Name + Guid.NewGuid().ToString().Split('-')[0];
-            var fileId = Name + "file";
-            var maxAllowedKillobyte = (MaxKb + 6) * 1000;
-
-            output.Content.SetHtmlContent($@"
-<img src='{ src}' id='{imgId}' style='height:100%; cursor:pointer;min-height:50px;border:1px dashed green;{ImgCss}' class='{ImgClass}' />
+        output.Content.SetHtmlContent($@"
+<img src='{ src}' id='{imgId}' style='height:100%; cursor:pointer;min-height:50px;object-fit: scale-down;border:1px dashed green;{ImgCss}' class='{ImgClass}' />
 <input type='file' name='{fileId}' id='{fileId}' style='display:none' accept='image/*' />
 <button id='del_img_{fileId}' type='button' class='btn' style='position: absolute;
                                                                margin-right: -30px;
@@ -74,7 +74,7 @@ namespace Redmask.Taghelpers.TagHelpers
 </script>");
 
 
+        output.TagMode = TagMode.StartTagAndEndTag;
 
-        }
     }
 }

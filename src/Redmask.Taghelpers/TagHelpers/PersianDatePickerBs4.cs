@@ -4,8 +4,8 @@ using Microsoft.AspNetCore.Razor.TagHelpers;
 
 namespace Redmask.Taghelpers.TagHelpers;
 
-[HtmlTargetElement("PersianDatePickerBs5", Attributes = DescriptionAttributeName, TagStructure = TagStructure.NormalOrSelfClosing)]
-public class PersianDatePickerTagHelperBs5 : TagHelper
+[HtmlTargetElement("PersianDatePickerBs4", Attributes = DescriptionAttributeName, TagStructure = TagStructure.NormalOrSelfClosing)]
+public class PersianDatePickerBs4TagHelper : TagHelper
 {
     private const string DescriptionAttributeName = "id";
     [HtmlAttributeName(DescriptionAttributeName)] public string Id { get; set; }
@@ -32,16 +32,18 @@ public class PersianDatePickerTagHelperBs5 : TagHelper
    
      $(document).ready(function () {{ 
         
-        new mds.MdsPersianDateTimePicker(document.getElementById('{Id}2'), {{
-            targetTextSelector: '#{Id}2',
-            targetDateSelector: '#{Id}',
-            enableTimePicker: false,
-            dateFormat: 'yyyy-MM-dd',
-            textFormat: 'yyyy/MM/dd',
-        }});
+         $('#{Id}2').MdPersianDateTimePicker({{
+                targetTextSelector: '#{Id}2',
+                targetDateSelector: '#{Id}',
+                enableTimePicker: false,
+                dateFormat: 'yyyy-MM-dd',
+                textFormat: 'yyyy/MM/dd',
+         }});
     }}); 
 </script> 
 ");
+        output.TagMode = TagMode.StartTagAndEndTag;
+
     }
     static string ToPersian(DateTime d, bool includeTime = false)
     {
